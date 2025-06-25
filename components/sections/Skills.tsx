@@ -5,7 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Code, Wrench, Cloud, Database } from 'lucide-react';
 
-const skillCategories = [
+// Define the allowed color values as a union type
+type SkillCategoryColor = 'blue' | 'teal' | 'purple' | 'orange';
+
+// Define the skill category interface
+interface SkillCategory {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  skills: string[];
+  color: SkillCategoryColor;
+}
+
+const skillCategories: SkillCategory[] = [
   {
     title: 'Programming Languages',
     icon: Code,
@@ -32,21 +43,21 @@ const skillCategories = [
   }
 ];
 
-const colorVariants = {
+const colorVariants: Record<SkillCategoryColor, string> = {
   blue: 'border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-700',
   teal: 'border-teal-200 dark:border-teal-800 hover:border-teal-300 dark:hover:border-teal-700',
   purple: 'border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700',
   orange: 'border-orange-200 dark:border-orange-800 hover:border-orange-300 dark:hover:border-orange-700'
 };
 
-const iconColorVariants = {
+const iconColorVariants: Record<SkillCategoryColor, string> = {
   blue: 'text-blue-600 bg-blue-100 dark:bg-blue-900/20',
   teal: 'text-teal-600 bg-teal-100 dark:bg-teal-900/20',
   purple: 'text-purple-600 bg-purple-100 dark:bg-purple-900/20',
   orange: 'text-orange-600 bg-orange-100 dark:bg-orange-900/20'
 };
 
-const badgeColorVariants = {
+const badgeColorVariants: Record<SkillCategoryColor, string> = {
   blue: 'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300',
   teal: 'bg-teal-50 text-teal-700 dark:bg-teal-900/20 dark:text-teal-300',
   purple: 'bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300',
