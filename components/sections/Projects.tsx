@@ -61,7 +61,8 @@ const projects = [
       'Integrated Arduino (C++) for hardware control and Python (Tkinter) for user interface',
       'Developed a mini UI to send commands via a ROS-based server with NodeMCU execution'
     ],
-    technologies: ['ROS', 'Python', 'Tkinter', 'Arduino', 'C++', 'NodeMCU']
+    technologies: ['ROS', 'Python', 'Tkinter', 'Arduino', 'C++', 'NodeMCU'],
+    githubUrl: 'https://github.com/AkshatJha0411/teleop-with-ros'
   },
   {
     title: 'SproutVestor',
@@ -73,7 +74,8 @@ const projects = [
       'Incorporated an initial questionnaire to gather user\'s investment timeframes and preferences',
       'Developed a personalized stock recommendation feature based on user responses with secure access'
     ],
-    technologies: ['Next.js', 'React', 'Appwrite', 'TypeScript', 'Authentication']
+    technologies: ['Next.js', 'React', 'Appwrite', 'TypeScript', 'Authentication'],
+    githubUrl: 'https://github.com/AkshatJha0411/sproutvestor'
   }
 ];
 
