@@ -147,7 +147,7 @@ export default function Hero() {
               className="group hover:bg-pink-50 hover:border-pink-300 dark:hover:bg-pink-900/20"
             >
               <a
-                href="https://www.instagram.com/akshat_j11/"
+                href="https://www.instagram.com/iakshatjha/#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2"

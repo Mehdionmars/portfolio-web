@@ -36,7 +36,7 @@ export default function Footer() {
                 <Github className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
               </a>
               <a
-                href="https://www.instagram.com/akshat_j11/"
+                href="https://www.instagram.com/iakshatjha/#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-pink-100 dark:hover:bg-pink-900/20 rounded-lg flex items-center justify-center transition-colors group"
