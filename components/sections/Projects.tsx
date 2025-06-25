@@ -41,7 +41,7 @@ const projects = [
     title: 'Dealora (IIT Mandi\'s Marketplace)',
     description: 'Mobile/web platform for second-hand item exchange at IIT Mandi with real-time updates and authentication',
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    date: 'February 2024',
+    date: 'February 2025',
     achievements: [
       'Built a mobile/web platform for second-hand item exchange at IIT Mandi using React (TypeScript)',
       'Developed backend with Node.js and Supabase (PostgreSQL) for real-time updates and auth',
