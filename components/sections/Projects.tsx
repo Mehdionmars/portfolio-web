@@ -23,6 +23,20 @@ const projects = [
     githubUrl: 'https://github.com/AkshatJha0411/light-pollution-explorer',
     award: '3rd Place - Orion Hackathon 2025'
   },
+    {
+    title: 'Dealora (IIT Mandi\'s Marketplace)',
+    description: 'Mobile/web platform for second-hand item exchange at IIT Mandi with real-time updates and authentication',
+    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+    date: 'February 2025',
+    achievements: [
+      'Built a mobile/web platform for second-hand item exchange at IIT Mandi using React (TypeScript)',
+      'Developed backend with Node.js and Supabase (PostgreSQL) for real-time updates and auth',
+      'Won 3rd place in KrackHack 2.0 (GDG)'
+    ],
+    technologies: ['PostgreSQL', 'React', 'Node.js', 'Express', 'TypeScript', 'Supabase'],
+    githubUrl: 'https://github.com/AkshatJha0411/Dealora-Marketplace',
+    award: '3rd Place - KrackHack 2.0 (GDG)'
+  },
   {
     title: 'AI-Powered Pulsar Detection',
     description: 'Enhanced pulsar detection system achieving 97.35% accuracy using advanced machine learning techniques',
@@ -37,20 +51,7 @@ const projects = [
     githubUrl: 'https://github.com/AkshatJha0411/SpaceCode-Hackathon/',
     award: '3rd Place - SpaceCode Hackathon'
   },
-  {
-    title: 'Dealora (IIT Mandi\'s Marketplace)',
-    description: 'Mobile/web platform for second-hand item exchange at IIT Mandi with real-time updates and authentication',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    date: 'February 2025',
-    achievements: [
-      'Built a mobile/web platform for second-hand item exchange at IIT Mandi using React (TypeScript)',
-      'Developed backend with Node.js and Supabase (PostgreSQL) for real-time updates and auth',
-      'Won 3rd place in KrackHack 2.0 (GDG)'
-    ],
-    technologies: ['PostgreSQL', 'React', 'Node.js', 'Express', 'TypeScript', 'Supabase'],
-    githubUrl: 'https://github.com/AkshatJha0411/Dealora-Marketplace',
-    award: '3rd Place - KrackHack 2.0 (GDG)'
-  },
+
   {
     title: 'Telecommunications Using ROS',
     description: 'Robot teleoperation system using ROS for communication and remote command control',
