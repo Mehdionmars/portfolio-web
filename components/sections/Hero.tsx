@@ -41,7 +41,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Name and Title */}
+          {/* Title and Description */}
           <div className="space-y-4">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -142,20 +142,32 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Button with Discover Excellence Style */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <Button
-              size="lg"
-              onClick={scrollToAbout}
-              className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+            <div
+              className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
+              dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
+              overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <span>Explore My Work</span>
-              <ArrowDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </Button>
+              <Button
+                variant="ghost"
+                onClick={scrollToAbout}
+                className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
+                bg-white/95 hover:bg-white/100 dark:bg-black/95 dark:hover:bg-black/100 
+                text-black dark:text-white transition-all duration-300 
+                group-hover:-translate-y-0.5 border border-black/10 dark:border-white/10
+                hover:shadow-md dark:hover:shadow-neutral-800/50"
+              >
+                <span className="opacity-90 group-hover:opacity-100 transition-opacity">
+                  Explore My Work
+                </span>
+                <ArrowDown className="ml-3 w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300" />
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       </div>
