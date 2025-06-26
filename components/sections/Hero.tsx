@@ -15,9 +15,9 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Paths Component */}
+      {/* Background Paths Component - without title to remove background text */}
       <div className="absolute inset-0">
-        <BackgroundPaths title="Akshat Jha" />
+        <BackgroundPaths title="" />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -25,14 +25,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-12"
+          className="space-y-8"
         >
-          {/* Profile Image - Positioned at top with more space */}
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1 mb-16"
+            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1"
           >
             <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
               <span className="text-4xl font-bold bg-gradient-to-br from-blue-600 to-teal-600 bg-clip-text text-transparent">
@@ -41,24 +41,68 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Title and Description - Positioned higher with reduced top margin */}
-          <div className="pt-10 sm:pt-14 md:pt-20 lg:pt-24">
+          {/* Animated Name - positioned just below icon */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 0.4 }}
+            className="space-y-4"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
+              {"Akshat Jha".split(" ").map((word, wordIndex) => (
+                <span
+                  key={wordIndex}
+                  className="inline-block mr-4 last:mr-0"
+                >
+                  {word.split("").map((letter, letterIndex) => (
+                    <motion.span
+                      key={`${wordIndex}-${letterIndex}`}
+                      initial={{ y: 100, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{
+                        delay: 0.6 + wordIndex * 0.1 + letterIndex * 0.03,
+                        type: "spring",
+                        stiffness: 150,
+                        damping: 25,
+                      }}
+                      className="inline-block text-transparent bg-clip-text 
+                      bg-gradient-to-r from-neutral-900 to-neutral-700/80 
+                      dark:from-white dark:to-white/80"
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
+            </h1>
+
+            {/* Professional Title */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground mx-auto max-w-4xl px-4"
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="text-xl sm:text-2xl text-muted-foreground"
             >
-              Building intelligent solutions and automating the future, one line of code at a time
+              Software Engineer & AI/ML Enthusiast
             </motion.p>
-          </div>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          >
+            Building intelligent solutions and automating the future, one line of code at a time
+          </motion.p>
 
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex justify-center flex-wrap gap-4 pt-16"
+            transition={{ duration: 0.8, delay: 1.6 }}
+            className="flex justify-center flex-wrap gap-4"
           >
             <Button
               variant="outline"
@@ -137,8 +181,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="pt-8"
+            transition={{ duration: 0.8, delay: 1.8 }}
           >
             <div
               className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
