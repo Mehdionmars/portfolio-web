@@ -25,14 +25,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-12"
         >
-          {/* Profile Image */}
+          {/* Profile Image - Positioned at top with more space */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1"
+            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1 mb-16"
           >
             <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
               <span className="text-4xl font-bold bg-gradient-to-br from-blue-600 to-teal-600 bg-clip-text text-transparent">
@@ -41,13 +41,13 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Title and Description */}
-          <div className="space-y-4">
+          {/* Title and Description - Positioned lower with clear separation */}
+          <div className="space-y-6 mt-20">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl sm:text-2xl text-muted-foreground"
+              className="text-xl sm:text-2xl text-muted-foreground font-medium"
             >
               Software Engineer & AI/ML Enthusiast
             </motion.p>
@@ -56,7 +56,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
               Building intelligent solutions and automating the future, one line of code at a time
             </motion.p>
@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex justify-center flex-wrap gap-4"
+            className="flex justify-center flex-wrap gap-4 pt-8"
           >
             <Button
               variant="outline"
@@ -147,6 +147,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
+            className="pt-8"
           >
             <div
               className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
