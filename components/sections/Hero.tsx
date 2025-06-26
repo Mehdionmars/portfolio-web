@@ -42,7 +42,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Title and Description - Positioned higher with reduced top margin */}
-          <div className="mt-48 sm:mt-56 md:mt-64 lg:mt-72">
+          <div className="pt-10 sm:pt-14 md:pt-20 lg:pt-24">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
