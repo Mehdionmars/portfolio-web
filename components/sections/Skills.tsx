@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Code, Wrench, Cloud, Database } from 'lucide-react';
-import { AuroraBackground } from '@/components/ui/aurora-background';
 
 // Define the allowed color values as a union type
 type SkillCategoryColor = 'blue' | 'teal' | 'purple' | 'orange';
@@ -67,67 +66,65 @@ const badgeColorVariants: Record<SkillCategoryColor, string> = {
 
 export default function Skills() {
   return (
-    <AuroraBackground className="min-h-auto">
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Technical Skills</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive toolkit for building modern, scalable applications
-            </p>
-          </motion.div>
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Technical Skills</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive toolkit for building modern, scalable applications
+          </p>
+        </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className={`h-full border-2 transition-all duration-300 hover:shadow-lg bg-background/50 backdrop-blur-sm ${colorVariants[category.color]}`}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-foreground">
-                      <div className={`p-2 rounded-lg ${iconColorVariants[category.color]}`}>
-                        <category.icon className="w-5 h-5" />
-                      </div>
-                      {category.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skillIndex}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5, delay: skillIndex * 0.05 }}
-                          viewport={{ once: true }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Badge 
-                            variant="secondary"
-                            className={`${badgeColorVariants[category.color]} hover:shadow-md transition-all duration-200 cursor-default backdrop-blur-sm`}
-                          >
-                            {skill}
-                          </Badge>
-                        </motion.div>
-                      ))}
+        <div className="grid md:grid-cols-2 gap-8">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className={`h-full border-2 transition-all duration-300 hover:shadow-lg bg-background/50 backdrop-blur-sm ${colorVariants[category.color]}`}>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-foreground">
+                    <div className={`p-2 rounded-lg ${iconColorVariants[category.color]}`}>
+                      <category.icon className="w-5 h-5" />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                    {category.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skillIndex}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: skillIndex * 0.05 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Badge 
+                          variant="secondary"
+                          className={`${badgeColorVariants[category.color]} hover:shadow-md transition-all duration-200 cursor-default backdrop-blur-sm`}
+                        >
+                          {skill}
+                        </Badge>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
-      </section>
-    </AuroraBackground>
+      </div>
+    </section>
   );
 }
