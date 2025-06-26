@@ -42,25 +42,17 @@ export default function Hero() {
           </motion.div>
 
           {/* Title and Description - Positioned lower with clear separation */}
-          <div className="space-y-6 mt-20">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl sm:text-2xl text-muted-foreground font-medium"
-            >
-              Software Engineer & AI/ML Enthusiast
-            </motion.p>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            >
-              Building intelligent solutions and automating the future, one line of code at a time
-            </motion.p>
+          <div className="mt-12">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground mx-auto max-w-4xl px-4"
+          >
+            Building intelligent solutions and automating the future, one line of code at a time
+          </motion.p>
           </div>
+
 
           {/* Social Links */}
           <motion.div
