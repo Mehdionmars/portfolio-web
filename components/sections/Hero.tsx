@@ -42,7 +42,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Title and Description - Positioned lower with clear separation */}
-          <div className="mt-12">
+          <div className="mt-12 sm:mt-36 md:mt-40 lg:mt-48">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
