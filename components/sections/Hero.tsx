@@ -88,7 +88,7 @@ export default function Hero() {
             <div 
               className="backdrop-blur-sm border rounded-lg"
               style={{
-                backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                backgroundColor: 'rgba(128, 128, 128, 0.2)',
                 padding: '20px',
                 border: '1px solid rgba(100, 100, 100, 0.6)',
                 lineHeight: '1.6'
