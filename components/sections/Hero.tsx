@@ -41,20 +41,17 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Title and Description - Positioned lower with clear separation */}
-          <div className="mt-80 sm:mt-96 md:mt-[28rem] lg:mt-[32rem]">
-
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground mx-auto max-w-4xl px-4"
-          >
-            Building intelligent solutions and automating the future, one line of code at a time
-          </motion.p>
+          {/* Title and Description - Positioned higher with reduced top margin */}
+          <div className="mt-48 sm:mt-56 md:mt-64 lg:mt-72">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg sm:text-xl md:text-2xl font-medium text-muted-foreground mx-auto max-w-4xl px-4"
+            >
+              Building intelligent solutions and automating the future, one line of code at a time
+            </motion.p>
           </div>
-
 
           {/* Social Links */}
           <motion.div
