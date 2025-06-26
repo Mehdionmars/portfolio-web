@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ExternalLink, Github, Linkedin, Code, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BackgroundPaths } from '@/components/ui/background-paths';
+import { AkshatJhaEffect } from '@/components/ui/akshat-jha-effect';
 
 export default function Hero() {
   const scrollToAbout = () => {
@@ -41,57 +42,24 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Animated Name - positioned just below icon */}
+          {/* Animated Name using Apple-style effect */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 0.4 }}
-            className="space-y-4"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex justify-center"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
-              {"Akshat Jha".split(" ").map((word, wordIndex) => (
-                <span
-                  key={wordIndex}
-                  className="inline-block mr-4 last:mr-0"
-                >
-                  {word.split("").map((letter, letterIndex) => (
-                    <motion.span
-                      key={`${wordIndex}-${letterIndex}`}
-                      initial={{ y: 100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: 0.6 + wordIndex * 0.1 + letterIndex * 0.03,
-                        type: "spring",
-                        stiffness: 150,
-                        damping: 25,
-                      }}
-                      className="inline-block text-transparent bg-clip-text 
-                      bg-gradient-to-r from-neutral-900 to-neutral-700/80 
-                      dark:from-white dark:to-white/80"
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
-            </h1>
-
-            {/* Professional Title */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-xl sm:text-2xl text-muted-foreground"
-            >
-              Software Engineer & AI/ML Enthusiast
-            </motion.p>
+            <AkshatJhaEffect 
+              speed={1.2} 
+              className="text-foreground"
+            />
           </motion.div>
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
             Building intelligent solutions and automating the future, one line of code at a time
@@ -101,7 +69,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
+            transition={{ duration: 0.8, delay: 2.0 }}
             className="flex justify-center flex-wrap gap-4"
           >
             <Button
@@ -181,7 +149,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 2.2 }}
           >
             <div
               className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
@@ -211,7 +179,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1, delay: 2.5 }}
         className="absolute bottom-8 right-8 z-20"
       >
         <motion.div
