@@ -75,27 +75,33 @@ export default function Hero() {
                 </span>
               ))}
             </h1>
-
-            {/* Professional Title */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-xl sm:text-2xl text-muted-foreground"
-            >
-              Software Engineer & AI/ML Enthusiast
-            </motion.p>
           </motion.div>
 
-          {/* Description */}
-          <motion.p
+          {/* Professional Info Container */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="mx-auto max-w-2xl"
+            style={{ margin: '10px' }}
           >
-            Building intelligent solutions and automating the future, one line of code at a time
-          </motion.p>
+            <div 
+              className="backdrop-blur-sm border rounded-lg"
+              style={{
+                backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                padding: '20px',
+                border: '1px solid rgba(100, 100, 100, 0.6)',
+                lineHeight: '1.6'
+              }}
+            >
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
+                Software Engineer & AI/ML Enthusiast
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Building intelligent solutions and automating the future, one line of code at a time
+              </p>
+            </div>
+          </motion.div>
 
           {/* Social Links */}
           <motion.div
