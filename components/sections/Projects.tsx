@@ -23,7 +23,7 @@ const projects = [
     githubUrl: 'https://github.com/AkshatJha0411/light-pollution-explorer',
     award: '3rd Place - Orion Hackathon 2025'
   },
-    {
+  {
     title: 'Dealora (IIT Mandi\'s Marketplace)',
     description: 'Mobile/web platform for second-hand item exchange at IIT Mandi with real-time updates and authentication',
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -51,7 +51,18 @@ const projects = [
     githubUrl: 'https://github.com/AkshatJha0411/SpaceCode-Hackathon/',
     award: '3rd Place - SpaceCode Hackathon'
   },
-
+  {
+    title: 'SustainX',
+    description: 'Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
+    image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
+    date: 'Aug 2024 - Dec 2024',
+    achievements: [
+      'Developed a Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
+      'Integrated Gemini chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features'
+    ],
+    technologies: ['Flutter', 'Dart', 'Firebase', 'Gemini API', 'IoT'],
+    award: 'Top 10 teams - DP Open House'
+  },
   {
     title: 'Telecommunications Using ROS',
     description: 'Robot teleoperation system using ROS for communication and remote command control',
