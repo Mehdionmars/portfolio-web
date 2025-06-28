@@ -15,8 +15,7 @@ const projects = [
     achievements: [
       'Built interactive visualization using React.js and Node.js',
       'Automated shapefile generation and per-state light intensity extraction via Python',
-      'Enabled 10-year trend plots with 40% reduction in preprocessing time',
-      'Secured 3rd place at Orion Hackathon among 200+ teams'
+      'Enabled 10-year trend plots with 40% reduction in preprocessing time'
     ],
     technologies: ['React.js', 'Node.js', 'Python', 'GeoPandas', 'Rasterio', 'Web Development', 'Data Visualization'],
     demoUrl: 'https://light-pollution-explorer.lovable.app/',
