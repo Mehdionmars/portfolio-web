@@ -108,7 +108,7 @@ export default function Projects() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-200 dark:hover:border-blue-800 bg-background/50 backdrop-blur-sm">
+                <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-200 dark:hover:border-blue-800 bg-card">
                   <div className="relative">
                     <div className="aspect-video bg-gradient-to-br from-blue-100 to-teal-100 dark:from-blue-900 dark:to-teal-900 overflow-hidden">
                       <img
@@ -118,7 +118,7 @@ export default function Projects() {
                       />
                     </div>
                     <div className="absolute top-4 left-4">
-                      <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
+                      <Badge variant="secondary" className="bg-background/80">
                         <Calendar className="w-3 h-3 mr-1" />
                         {project.date}
                       </Badge>
@@ -165,7 +165,7 @@ export default function Projects() {
                           <Badge 
                             key={index} 
                             variant="secondary"
-                            className="text-xs bg-blue-50/50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 hover:bg-blue-100/50 dark:hover:bg-blue-900/30 transition-colors backdrop-blur-sm"
+                            className="text-xs bg-blue-50/50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 hover:bg-blue-100/50 dark:hover:bg-blue-900/30 transition-colors"
                           >
                             {tech}
                           </Badge>
@@ -187,7 +187,7 @@ export default function Projects() {
                         </Button>
                       )}
                       {project.githubUrl && (
-                        <Button variant="outline" size="sm" asChild className="bg-background/50 backdrop-blur-sm">
+                        <Button variant="outline" size="sm" asChild className="bg-background/50">
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                             <Github className="w-3 h-3 mr-2" />
                             View Source
