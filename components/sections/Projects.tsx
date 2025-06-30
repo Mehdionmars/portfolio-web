@@ -60,6 +60,7 @@ const projects = [
       'Integrated Gemini chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features'
     ],
     technologies: ['Flutter', 'Dart', 'Firebase', 'Gemini API', 'IoT'],
+    githubUrl: 'https://github.com/AkshatJha0411/SustainX/',
     award: 'Top 10 teams - DP Open House'
   },
   {
