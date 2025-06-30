@@ -2,6 +2,8 @@
 
 A cutting-edge, production-ready portfolio website that redefines personal branding for developers and tech professionals. Built with modern web technologies and designed with meticulous attention to detail.
 
+🌐 **Live Demo**: [https://portfolio-web-akshat.vercel.app](https://portfolio-web-akshat.vercel.app)
+
 ## 🌟 Features
 
 ### Interactive Design
@@ -144,7 +146,9 @@ The portfolio is built with a mobile-first approach:
 
 ## 🌐 Deployment
 
-The project is configured for easy deployment on Vercel:
+The project is deployed on Vercel at: [https://portfolio-web-akshat.vercel.app](https://portfolio-web-akshat.vercel.app)
+
+For your own deployment:
 
 1. Push your code to a Git repository
 2. Connect your repository to Vercel
