@@ -74,6 +74,7 @@ const projects = [
       'Developed a mini UI to send commands via a ROS-based server with NodeMCU execution'
     ],
     technologies: ['ROS', 'Python', 'Tkinter', 'Arduino', 'C++', 'NodeMCU'],
+    demoUrl: 'https://vimeo.com/949310056?share=copy',
     githubUrl: 'https://github.com/AkshatJha0411/teleop-with-ros'
   },
   {
