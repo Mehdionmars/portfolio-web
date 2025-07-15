@@ -7,6 +7,17 @@ import { Building, MapPin, Calendar, TrendingUp } from 'lucide-react';
 
 const experiences = [
   {
+    company: 'HyperQube Ionic',
+    role: 'SDE Intern (Summer)',
+    location: 'Remote',
+    period: 'June 2025 – Present',
+    achievements: [
+      'Built the analytics system with Amplitude and Clerk integration, capturing live user events across various org segments and driving insights from 5K+ monthly actions.'
+    ],
+    technologies: ['Data Analytics', 'Amplitude', 'Event Tracking', 'REST APIs'],
+    color: 'green'
+  },
+  {
     company: 'VectorX DB (prev. LaunchX Labs)',
     role: 'SDE Intern',
     location: 'Bengaluru, Karnataka',
