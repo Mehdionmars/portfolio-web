@@ -12,7 +12,7 @@ const experiences = [
     location: 'Remote',
     period: 'June 2025 – Present',
     achievements: [
-      'Built the analytics system with Amplitude and Clerk integration, capturing live user events across various org segments and driving insights from 5K+ monthly actions.'
+      'Architected a scalable analytics system with Amplitude and Clerk integration, engineered to capture live user events across various org segments and drive insights from 5K+ monthly actions.'
     ],
     technologies: ['Data Analytics', 'Amplitude', 'Event Tracking', 'REST APIs'],
     color: 'green'
