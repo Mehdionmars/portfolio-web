@@ -8,14 +8,15 @@ import { Building, MapPin, Calendar, TrendingUp } from 'lucide-react';
 const experiences = [
   {
     company: 'HyperQube Ionic',
-    role: 'SDE Intern (Summer)',
+    role: 'SDE Intern',
     location: 'Remote',
-    period: 'June 2025 – Present',
+    period: 'June 2025 – July 2025',
     achievements: [
-      'Architected a scalable analytics system with Amplitude and Clerk integration, engineered to capture live user events across various org segments and drive insights from 5K+ monthly actions.'
+      'Architected a scalable analytics system with Amplitude and Clerk integration, engineered to capture live user events across various org segments and drive insights from 5K+ monthly actions.',
+      'Built a native meeting feature directly into the platform using Nylas and Twilio APIs, reducing manual scheduling time by 30% and increasing user retention by 50%.'
     ],
-    technologies: ['Data Analytics', 'Amplitude', 'Event Tracking', 'REST APIs'],
-    color: 'green'
+    technologies: ['Data/Business Analytics', 'Amplitude Integration', 'Event Tracking', 'REST APIs', 'Twilio API', 'Nylas Calendar API'],
+    color: 'teal'
   },
   {
     company: 'VectorX DB (prev. LaunchX Labs)',
@@ -36,6 +37,7 @@ const experiences = [
     location: 'Remote (Malta, Europe)',
     period: 'June 2024 – Aug. 2024',
     achievements: [
+      'Deployed Kubernetes rolling update process on Amazon EKS for voicebot microservices, cutting average deployment-related downtime from 5 minutes to under 30 seconds.',
       'Architected AppSumo webhook and OAuth integration, developing REST APIs to automate 95% of onboarding and reduce user setup time',
       'Migrated the voicebot\'s speech synthesis from Amazon Polly to Deepgram, decreasing average response time from 7 seconds to 1.2 seconds, which amplified user engagement by 24%',
       'Engineered the backend for an interruption feature in a voice AI chatbot using Twilio\'s API, cutting response delays by 35%'
