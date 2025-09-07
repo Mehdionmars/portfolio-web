@@ -32,24 +32,24 @@ const achievements = [
 
 const certifications = [
   {
-    title: 'Google Cloud Public Profile',
-    description: 'Comprehensive cloud skills and achievements',
-    link: 'https://www.cloudskillsboost.google/public_profiles/d4bd12d2-80fb-43a7-ba30-536890e3e09f'
+    title: 'Mastercard Cybersecurity Virtual Experience',
+    description: 'Cybersecurity Virtual Experience Program - Forage',
+    link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Mastercard/vcKAB5yYAgvemepGQ_Mastercard_QmQfj7678xgft6TRX_1684872202730_completion_certificate.pdf'
   },
   {
-    title: 'Advanced Python: Working with Data',
-    description: 'LinkedIn Learning Certification',
-    link: 'https://www.linkedin.com/learning/certificates/cbaafd2959fdd9c1f7582a234173da86cd0bfed1cf7f05d66c4ffa2c9b6773f7'
+    title: 'Google IT Support Professional Certificate',
+    description: 'DevOps, Cloud, and AgileFoundations - Coursera Specialization',
+    link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/ENYAQSEYBT8C'
   },
   {
-    title: 'DevOps with AWS',
-    description: 'LinkedIn Learning Certification',
-    link: 'https://www.linkedin.com/learning/certificates/0a554bf6692410db2e6064d5fe1cdf41ad584cef0705577cd3842005ddbab24c?lipi=urn:li:page:d_flagship3_profile_view_base_certifications_details;tq+kjguvQNyolStsUlEIpg=='
+    title: 'Google Cloud',
+    description: 'Building Scalable Java Microservices with Spring Boot and Spring Cloud',
+    link: 'https://www.coursera.org/account/accomplishments/verify/Y4T5LX8KK4BP?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course'
   },
   {
-    title: 'Career Essentials in Generative AI',
-    description: 'Microsoft and LinkedIn Certification',
-    link: 'https://www.linkedin.com/learning/certificates/cbaafd2959fdd9c1f7582a234173da86cd0bfed1cf7f05d66c4ffa2c9b6773f7'
+    title: 'Vanderbilt University',
+    description: 'Android App Components - Services, Local IPC, andContent Providers',
+    link: 'https://www.coursera.org/account/accomplishments/certificate/YCZLPZTT3PDG'
   }
 ];
 
@@ -85,7 +85,7 @@ export default function Achievements() {
             </motion.h3>
             
             <div className="grid md:grid-cols-3 gap-6">
-              {achievements.map((achievement, index) => (
+              {/* {achievements.map((achievement, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ export default function Achievements() {
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))}
+              ))} */}
             </div>
           </div>
 

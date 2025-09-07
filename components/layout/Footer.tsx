@@ -14,13 +14,13 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-4">Akshat Jha</h3>
+            <h3 className="text-lg font-semibold mb-4">Mehdi Moungid</h3>
             <p className="text-muted-foreground mb-4 max-w-md">
               Software Engineer & AI/ML Enthusiast building the future through innovative technology solutions.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com/in/iakshatjha"
+                href="https://linkedin.com/in/moungid-mehdi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded-lg flex items-center justify-center transition-colors group"
@@ -28,7 +28,7 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-blue-600" />
               </a>
               <a
-                href="https://github.com/AkshatJha0411/"
+                href="https://github.com/Mehdionmars"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg flex items-center justify-center transition-colors group"
@@ -36,7 +36,7 @@ export default function Footer() {
                 <Github className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
               </a>
               <a
-                href="https://www.instagram.com/iakshatjha/#"
+                href="https://www.instagram.com/mehdi.onmarz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-pink-100 dark:hover:bg-pink-900/20 rounded-lg flex items-center justify-center transition-colors group"
@@ -44,7 +44,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-pink-600" />
               </a>
               <a
-                href="https://leetcode.com/iakshatjha"
+                href="https://leetcode.com/mehdionmars"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-orange-100 dark:hover:bg-orange-900/20 rounded-lg flex items-center justify-center transition-colors group"
@@ -82,11 +82,11 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center">
+        {/* <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-red-500" /> by Akshat Jha
+            Made with <Heart className="w-4 h-4 text-red-500" /> by Mehdi Moungid
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

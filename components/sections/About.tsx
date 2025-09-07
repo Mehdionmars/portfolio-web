@@ -30,9 +30,9 @@ export default function About() {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-foreground">One word which drives me - "Curiosity"</h3>
+              <h3 className="text-2xl font-semibold text-foreground">One word which drives me - &#34;Curiosity&#34;</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm an aspiring software engineer currently pursuing academics in AI and Robotics at IIT Mandi. 
+                I&apos;m an aspiring software engineer currently pursuing academics in AI and Robotics at IIT Mandi. 
                 With a strong foundation in full-stack development and applied machine learning, I thrive on 
                 building real-world applications that make a difference.
               </p>
@@ -45,7 +45,7 @@ export default function About() {
 
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <GraduationCap className="w-4 h-4" />
-              <span>IIT Mandi • Robotics & AI</span>
+              <span>Emsi • Miage</span>
             </div>
           </motion.div>
 
