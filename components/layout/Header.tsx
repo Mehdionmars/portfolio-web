@@ -65,7 +65,7 @@ export default function Header({ activeSection }: HeaderProps) {
               onClick={() => scrollToSection('#hero')}
               className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
             >
-              AJ
+              Mehdi Moungid
             </button>
           </motion.div>
 

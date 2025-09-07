@@ -36,7 +36,7 @@ export default function Hero() {
           >
             <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
               <span className="text-4xl font-bold bg-gradient-to-br from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                AJ
+                MM
               </span>
             </div>
           </motion.div>
