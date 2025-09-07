@@ -1,4 +1,4 @@
-# Akshat's Modern Portfolio
+# Mehdi's Modern Portfolio
 
 A cutting-edge, production-ready portfolio website that redefines personal branding for developers and tech professionals. Built with modern web technologies and designed with meticulous attention to detail.
 
@@ -146,8 +146,7 @@ The portfolio is built with a mobile-first approach:
 
 ## 🌐 Deployment
 
-The project is deployed on Vercel at: [https://iakshatjha.vercel.app](https://iakshatjha.vercel.app)
-
+The project is deployed on Vercel at:
 For your own deployment:
 
 1. Push your code to a Git repository
@@ -177,5 +176,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - **Vercel** for seamless deployment platform
 
 ---
-
-**Built with ❤️ and modern web technologies**
