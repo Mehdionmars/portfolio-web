@@ -80,8 +80,8 @@ export default function Achievements() {
               viewport={{ once: true }}
               className="text-2xl font-semibold mb-6 flex items-center gap-2 text-foreground"
             >
-              <Trophy className="w-6 h-6 text-yellow-600" />
-              Hackathon Wins
+              {/* <Trophy className="w-6 h-6 text-yellow-600" />
+              Hackathon Wins */}
             </motion.h3>
             
             <div className="grid md:grid-cols-3 gap-6">
