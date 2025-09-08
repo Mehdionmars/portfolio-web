@@ -6,45 +6,75 @@ import { Badge } from '@/components/ui/badge';
 import { Building, MapPin, Calendar, TrendingUp } from 'lucide-react';
 
 const experiences = [
-  {
-    company: 'HyperQube Ionic',
-    role: 'SDE Intern',
-    location: 'Remote',
-    period: 'June 2025 – July 2025',
-    achievements: [
-      'Architected a scalable analytics system with Amplitude and Clerk integration, engineered to capture live user events across various org segments and drive insights from 5K+ monthly actions.',
-      'Built a native meeting feature directly into the platform using Nylas and Twilio APIs, reducing manual scheduling time by 30% and increasing user retention by 50%.'
-    ],
-    technologies: ['Data/Business Analytics', 'Amplitude Integration', 'Event Tracking', 'REST APIs', 'Twilio API', 'Nylas Calendar API'],
-    color: 'teal'
-  },
-  {
-    company: 'VectorX DB (prev. LaunchX Labs)',
-    role: 'SDE Intern',
-    location: 'Bengaluru, Karnataka',
-    period: 'Dec. 2024 – Jan. 2025',
-    achievements: [
-      'Designed AI agents (LLM Agent & RAG Agent) with PGVectorStore and GPT-4o-mini, reducing response time by 50% and improving retrieval accuracy',
-      'Built a metadata extraction pipeline with LangChain\'s LLM, automating document processing for 1M+ documents monthly',
-      'Developed a dynamic filter system with FilterAgent and Claude 3.5 Sonnet, generating 100K+ JSON filters daily and boosting DB query efficiency by 40%'
-    ],
-    technologies: ['Python', 'LangChain', 'GPT-4o-mini', 'Claude 3.5 Sonnet', 'PGVectorStore', 'AI Agents', 'RAG'],
-    color: 'blue'
-  },
-  {
-    company: 'Urbanchat.ai',
-    role: 'Backend Developer Intern',
-    location: 'Remote (Malta, Europe)',
-    period: 'June 2024 – Aug. 2024',
-    achievements: [
-      'Deployed Kubernetes rolling update process on Amazon EKS for voicebot microservices, cutting average deployment-related downtime from 5 minutes to under 30 seconds.',
-      'Architected AppSumo webhook and OAuth integration, developing REST APIs to automate 95% of onboarding and reduce user setup time',
-      'Migrated the voicebot\'s speech synthesis from Amazon Polly to Deepgram, decreasing average response time from 7 seconds to 1.2 seconds, which amplified user engagement by 24%',
-      'Engineered the backend for an interruption feature in a voice AI chatbot using Twilio\'s API, cutting response delays by 35%'
-    ],
-    technologies: ['Node.js', 'REST APIs', 'Amazon Polly', 'Deepgram', 'Twilio API', 'OAuth', 'Webhooks'],
-    color: 'teal'
-  }
+{
+  company: 'Solupharm',
+  role: 'Fullstack Developer Intern',
+  location: 'Montreal, QC',
+  period: 'Oct. 2024 – Dec. 2024',
+  achievements: [
+    "Collaborated cross-functionally to define and prioritize features and requirements.",
+    "Developed an interactive web platform using Next.js to centralize task management and employee scheduling.",
+    "Enhanced collaboration and communication with an intuitive and efficient user interface.",
+    "Integrated advanced scheduling features for accurate real-time activity tracking.",
+    "Designed a modular and scalable architecture, reducing maintenance time and enabling new feature additions."
+  ],
+  technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React', 'TypeScript', 'Radix'],
+  color: 'red'
+},
+{
+  company: 'LogInfo',
+  role: 'Backend & Frontend Intern',
+  location: 'Casablanca, Morocco',
+  period: 'Mar. 2024 – Sept. 2024',
+  achievements: [
+    "Deployed applications with Next.js and React on AWS (EC2, RDS, S3).",
+    "Collaborated with product and QA teams to automate testing and deployments.",
+    "Integrated Docker and Azure DevOps for environment management.",
+    "Performed code reviews, unit testing, and system testing, resolving software defects.",
+    "Created code templates to share with other developers."
+  ],
+  technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React.js'],
+  color: 'purple'
+},
+{
+  company: 'Hpsearch',
+  role: 'WordPress Developer Intern',
+  location: 'Casablanca, Morocco',
+  period: 'June 2023 – Aug. 2023',
+  achievements: [
+    "Developed a WordPress plugin enabling integration of third-party APIs for secure data storage and retrieval.",
+    "Implemented advanced techniques, such as custom post types, to enhance user experience.",
+    "Built multiple websites using WordPress, ensuring responsive and optimized design across all devices."
+  ],
+  technologies: ['WordPress', 'Elementor', 'PHP'],
+  color: 'orange'
+},
+{
+  company: 'SDAIM',
+  role: 'Android Developer Intern',
+  location: 'Casablanca, Morocco',
+  period: 'June 2021 – Sept. 2021',
+  achievements: [
+    "Developed and maintained a mobile application.",
+    "Conducted code reviews, unit tests, and system testing.",
+    "Developed backend tools with Payload CMS and MongoDB.",
+    "Contributed to continuous improvement of software development processes and best practices."
+  ],
+  technologies: ['Payload CMS', 'React Native', 'Node.js', 'Tailwind', 'MongoDB', 'S3', 'Figma', 'Expo'],
+  color: 'yellow'
+},
+{
+  company: 'SITA (Mohammed V Airport, Nouaceur)',
+  role: 'Network Technician Intern',
+  location: 'Casablanca, Morocco',
+  period: 'May 2020 – June 2020',
+  achievements: [
+    "Assisted in managing network infrastructures.",
+    "Gained introduction to network supervision and monitoring."
+  ],
+  technologies: ['Cisco Networking', 'Network Monitoring'],
+  color: 'green'
+},
 ];
 
 export default function Experience() {
