@@ -8,7 +8,7 @@ import { ExternalLink, Github, Award, TrendingUp, Calendar } from 'lucide-react'
 
 const projects = [
   {
-    title: 'Light Pollution Explorer',
+    title: 'VCard QR Generator',
     description: 'Interactive web tool to visualize light pollution severity across 28 Indian states with real VIIRS satellite data',
     image: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=800',
     date: 'March 2025',
@@ -17,41 +17,43 @@ const projects = [
       'Automated shapefile generation and per-state light intensity extraction via Python',
       'Enabled 10-year trend plots with 40% reduction in preprocessing time'
     ],
-    technologies: ['React.js', 'Node.js', 'Python', 'GeoPandas', 'Rasterio', 'Web Development', 'Data Visualization'],
-    demoUrl: 'https://light-pollution-explorer.lovable.app/',
-    githubUrl: 'https://github.com/AkshatJha0411/light-pollution-explorer',
-    award: '3rd Place - Orion Hackathon 2025'
+    technologies: ['React.js', 'Node.js', 'Python', 'Web Development', 'Data Visualization'],
+    demoUrl: 'https://gentle-lamington-556b02.netlify.app/',
+    githubUrl: 'https://github.com/',
+    award: ''
   },
   {
-    title: 'Dealora (IIT Mandi\'s Marketplace)',
-    description: 'Mobile/web platform for second-hand item exchange at IIT Mandi with real-time updates and authentication',
+    title: 'PC Boost Gaming',
+    description: 'Mobile/web platform for a store that sell gaming PCs and accessories',
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
     date: 'February 2025',
     achievements: [
-      'Built a mobile/web platform for second-hand item exchange at IIT Mandi using React (TypeScript)',
-      'Developed backend with Node.js and Supabase (PostgreSQL) for real-time updates and auth',
-      'Won 3rd place in KrackHack 2.0 (GDG)'
+      'Built a website for gaming pc store',
+      'Developed backend with Payload CMS (headless cms) for real-time updates and auth',
+      'added features like pc builder'
     ],
-    technologies: ['PostgreSQL', 'React', 'Node.js', 'Express', 'TypeScript', 'Supabase'],
-    githubUrl: 'https://github.com/AkshatJha0411/Dealora-Marketplace',
-    award: '3rd Place - KrackHack 2.0 (GDG)'
+    technologies: ['Payload CMS', 'React', 'Node.js', 'Express', 'TypeScript', 'Vite js'],
+    demoUrl: 'https://beta.boostgaming.ma/',
+    githubUrl: 'https://github.com/xenedium/boostgaming-frontend',
+    award: ''
   },
   {
-    title: 'AI-Powered Pulsar Detection',
-    description: 'Enhanced pulsar detection system achieving 97.35% accuracy using advanced machine learning techniques',
+    title: 'Weather Forecast Detection',
+    description: 'Enhanced weather forecast system achieving 97.35% accuracy using advanced machine learning techniques',
     image: 'https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=800',
     date: 'January 2025',
     achievements: [
-      'Enhanced pulsar detection to 97.35% accuracy using Random Forest by optimizing features and addressing class imbalance',
-      'Designed a CNN-based pulsar classification pipeline in PyTorch with 4 convolutional layers',
+      'Enhanced weather forecast to 97.35% accuracy using Random Forest by optimizing features and addressing class imbalance',
+      'Designed a CNN-based weather classification pipeline in PyTorch with 4 convolutional layers',
       'Achieved 3x faster training with batch normalization'
     ],
-    technologies: ['Python', 'Seaborn', 'Scikit-Learn', 'PyTorch', 'Jupyter Notebook'],
-    githubUrl: 'https://github.com/AkshatJha0411/SpaceCode-Hackathon/',
+    technologies: ['Python', 'Seaborn', 'Next.js', 'PyTorch', 'Jupyter Notebook'],
+    demoUrl: 'https://weatherca.vercel.app/',
+    githubUrl: 'https://github.com/Mehdionmars/weatherca/',
     award: '3rd Place - SpaceCode Hackathon'
   },
   {
-    title: 'SustainX',
+    title: 'Cyberpunk dashboard design',
     description: 'Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
     image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
     date: 'Aug 2024 - Dec 2024',
@@ -59,36 +61,36 @@ const projects = [
       'Developed a Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
       'Integrated Gemini chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features'
     ],
-    technologies: ['Flutter', 'Dart', 'Firebase', 'Gemini API', 'IoT'],
+    technologies: ['typescript', 'vscode', 'nextjs', 'supabase', 'react'],
+    demoUrl: 'https://v0-cyberpunk-dashboard-design-gold-eta-63.vercel.app/',
     githubUrl: 'https://github.com/AkshatJha0411/SustainX/',
-    award: 'Top 10 teams - DP Open House'
   },
   {
-    title: 'Telecommunications Using ROS',
-    description: 'Robot teleoperation system using ROS for communication and remote command control',
+    title: 'BEACHFRONT LUXURY ACCOMMODATION',
+    description: 'website for luxury beachfront accommodation in Maldives',
     image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800',
     date: 'January - May 2024',
     achievements: [
-      'Designed and implemented a robot teleoperation system using ROS for communication',
-      'Integrated Arduino (C++) for hardware control and Python (Tkinter) for user interface',
-      'Developed a mini UI to send commands via a ROS-based server with NodeMCU execution'
+      'Designed and implemented website using figma for UI/UX and React.js for frontend',
+      'Integrated gallery and contact form for user engagement',
+      'Developed website for hotel booking and accommodation services',
     ],
-    technologies: ['ROS', 'Python', 'Tkinter', 'Arduino', 'C++', 'NodeMCU'],
-    demoUrl: 'https://vimeo.com/949310056?share=copy',
+    technologies: ['vite js', 'react', 'Typescript', 'vscode'],
+    demoUrl: 'https://lovable.dev/projects/96f629c9-6031-4f68-8bd0-680a3c64b6e3',
     githubUrl: 'https://github.com/AkshatJha0411/teleop-with-ros'
   },
   {
-    title: 'SproutVestor',
-    description: 'Web application to assist novice investors and students in making informed stock selections',
+    title: 'AtlanticSoud',
+    description: 'Web application for a construction company in Morocco',
     image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
     date: 'February 2024',
     achievements: [
-      'Built a web application using Next.js, React and Appwrite (Backend as a Service) to assist novice investors',
-      'Incorporated an initial questionnaire to gather user\'s investment timeframes and preferences',
-      'Developed a personalized stock recommendation feature based on user responses with secure access'
+      'Built a web application using Next.js, React and supabase (Backend) ',
+      'Implemented gallery, contact form, and dynamic content management',
     ],
-    technologies: ['Next.js', 'React', 'Appwrite', 'TypeScript', 'Authentication'],
-    githubUrl: 'https://github.com/AkshatJha0411/sproutvestor'
+    technologies: ['Next.js', 'React', 'supabase', 'TypeScript',],
+    demoUrl: 'https://www.atlanticsoud.ma/',
+    githubUrl: 'https://github.com/Mehdionmars/Constead'
   }
 ];
 
