@@ -54,12 +54,12 @@ const projects = [
   },
   {
     title: 'Cyberpunk dashboard design',
-    description: 'Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
+    description: 'Cyberpunk inspired display combines retro-pixel aesthetics with modern interface elements',
     image: '/ops.png',
     date: 'Aug 2024 - Dec 2024',
     achievements: [
-      'Developed a Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
-      'Integrated Gemini chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features'
+      'A sleek digital dashboard emerges from the darkness, defined by precise pixel art styling and bathed in ethereal blue light.',
+      'Clean geometric lines form a minimalist interface, while carefully placed red warning indicators add functional contrast to the design.'
     ],
     technologies: ['typescript', 'vscode', 'nextjs', 'supabase', 'react'],
     demoUrl: 'https://v0-cyberpunk-dashboard-design-gold-eta-63.vercel.app/',
@@ -76,7 +76,7 @@ const projects = [
       'Developed website for hotel booking and accommodation services',
     ],
     technologies: ['vite js', 'react', 'Typescript', 'vscode'],
-    demoUrl: 'https://lovable.dev/projects/96f629c9-6031-4f68-8bd0-680a3c64b6e3',
+    demoUrl: 'https://resortseaside.vercel.app/',
     githubUrl: 'https://github.com/AkshatJha0411/teleop-with-ros'
   },
   {
