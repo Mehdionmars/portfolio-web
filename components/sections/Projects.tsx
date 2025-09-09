@@ -50,7 +50,7 @@ const projects = [
     technologies: ['Python', 'Seaborn', 'Next.js', 'PyTorch', 'Jupyter Notebook'],
     demoUrl: 'https://weatherca.vercel.app/',
     githubUrl: 'https://github.com/Mehdionmars/weatherca/',
-    award: '3rd Place - SpaceCode Hackathon'
+    award: ''
   },
   {
     title: 'Cyberpunk dashboard design',
