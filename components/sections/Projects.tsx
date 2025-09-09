@@ -10,12 +10,12 @@ const projects = [
   {
     title: 'VCard QR Generator',
     description: 'Interactive web tool to visualize light pollution severity across 28 Indian states with real VIIRS satellite data',
-    image: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'vrcode.png',
     date: 'March 2025',
     achievements: [
       'Built interactive visualization using React.js and Node.js',
-      'Automated shapefile generation and per-state light intensity extraction via Python',
-      'Enabled 10-year trend plots with 40% reduction in preprocessing time'
+      'Filled in data to make vCard and generate QR code',
+      'open source project'
     ],
     technologies: ['React.js', 'Node.js', 'Python', 'Web Development', 'Data Visualization'],
     demoUrl: 'https://gentle-lamington-556b02.netlify.app/',
@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'PC Boost Gaming',
     description: 'Mobile/web platform for a store that sell gaming PCs and accessories',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'boost.png',
     date: 'February 2025',
     achievements: [
       'Built a website for gaming pc store',
@@ -40,10 +40,10 @@ const projects = [
   {
     title: 'Weather Forecast Detection',
     description: 'Enhanced weather forecast system achieving 97.35% accuracy using advanced machine learning techniques',
-    image: 'https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=800',
-    date: 'January 2025',
+    image: 'forecast.png',
+    date: 'June 2025',
     achievements: [
-      'Enhanced weather forecast to 97.35% accuracy using Random Forest by optimizing features and addressing class imbalance',
+      'Enhanced weather forecast accuracy using api\'s by optimizing features and addressing class imbalance',
       'Designed a CNN-based weather classification pipeline in PyTorch with 4 convolutional layers',
       'Achieved 3x faster training with batch normalization'
     ],
@@ -55,7 +55,7 @@ const projects = [
   {
     title: 'Cyberpunk dashboard design',
     description: 'Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
-    image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/ops.png',
     date: 'Aug 2024 - Dec 2024',
     achievements: [
       'Developed a Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
@@ -68,8 +68,8 @@ const projects = [
   {
     title: 'BEACHFRONT LUXURY ACCOMMODATION',
     description: 'website for luxury beachfront accommodation in Maldives',
-    image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800',
-    date: 'January - May 2024',
+    image: 'resort.png',
+    date: 'January - May 2025',
     achievements: [
       'Designed and implemented website using figma for UI/UX and React.js for frontend',
       'Integrated gallery and contact form for user engagement',
@@ -82,8 +82,8 @@ const projects = [
   {
     title: 'AtlanticSoud',
     description: 'Web application for a construction company in Morocco',
-    image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-    date: 'February 2024',
+    image: 'soud.png',
+    date: 'February 2025',
     achievements: [
       'Built a web application using Next.js, React and supabase (Backend) ',
       'Implemented gallery, contact form, and dynamic content management',
