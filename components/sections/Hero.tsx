@@ -146,7 +146,7 @@ export default function Hero() {
               </a>
             </Button>
 
-            <Button
+            {/* <Button
               variant="outline"
               size="lg"
               asChild
@@ -162,7 +162,7 @@ export default function Hero() {
                 <span>Instagram</span>
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
-            </Button>
+            </Button> */}
             
             <Button
               variant="outline"

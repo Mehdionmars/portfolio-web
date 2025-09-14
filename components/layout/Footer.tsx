@@ -35,14 +35,14 @@ export default function Footer() {
               >
                 <Github className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
               </a>
-              <a
+              {/* <a
                 href="https://www.instagram.com/mehdi.onmarz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-muted hover:bg-pink-100 dark:hover:bg-pink-900/20 rounded-lg flex items-center justify-center transition-colors group"
               >
                 <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-pink-600" />
-              </a>
+              </a> */}
               <a
                 href="https://leetcode.com/mehdionmars"
                 target="_blank"

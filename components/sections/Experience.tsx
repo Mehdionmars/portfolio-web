@@ -141,7 +141,7 @@ export default function Experience() {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold flex items-center gap-2 text-foreground">
+                      <h4 className="font-semibold flex items-center gap-2 dark:text-blue-500 text-teal-500 ">
                         <TrendingUp className="w-4 h-4" />
                         Key Achievements
                       </h4>
@@ -158,7 +158,9 @@ export default function Experience() {
                     </div>
                     
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground">Technologies Used</h4>
+                      <h4 className="font-semibold text-foreground dark:text-orange-300">
+                        Technologies Used :
+                        </h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech, techIndex) => (
                           <Badge 

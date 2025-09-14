@@ -45,7 +45,8 @@ const projects = [
     achievements: [
       'Enhanced weather forecast accuracy using api\'s by optimizing features and addressing class imbalance',
       'Designed a CNN-based weather classification pipeline in PyTorch with 4 convolutional layers',
-      'Achieved 3x faster training with batch normalization'
+      'Achieved 3x faster training with batch normalization',
+      'Developed an interactive web app using Next.js to display real-time weather data'
     ],
     technologies: ['Python', 'Seaborn', 'Next.js', 'PyTorch', 'Jupyter Notebook'],
     demoUrl: 'https://weatherca.vercel.app/',
@@ -59,7 +60,8 @@ const projects = [
     date: 'Aug 2024 - Dec 2024',
     achievements: [
       'Developed a Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
-      'Integrated Gemini chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features'
+      'Integrated chatbot for interactive sustainability guidance, alongside custom UI, Google Fonts, and smart device control features',
+      'Implemented robust authentication and data management using Firebase Auth and Firestore, ensuring secure user experiences',
     ],
     technologies: ['typescript', 'vscode', 'nextjs', 'supabase', 'react'],
     demoUrl: 'https://v0-cyberpunk-dashboard-design-gold-eta-63.vercel.app/',
@@ -87,6 +89,7 @@ const projects = [
     achievements: [
       'Built a web application using Next.js, React and supabase (Backend) ',
       'Implemented gallery, contact form, and dynamic content management',
+      'Seo optimization and responsive design for better user experience',
     ],
     technologies: ['Next.js', 'React', 'supabase', 'TypeScript',],
     demoUrl: 'https://www.atlanticsoud.ma/',

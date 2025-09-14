@@ -12,6 +12,7 @@ import Achievements from '@/components/sections/Achievements';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/theme-provider';
+import { CreativePricingDemo } from '@/components/sections/Pricing';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -48,6 +49,7 @@ export default function Home() {
           <Projects />
           <Skills />
           <Achievements />
+          <CreativePricingDemo />
           <Contact />
         </main>
         <Footer />
