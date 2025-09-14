@@ -55,7 +55,7 @@ const projects = [
   },
   {
     title: 'Cyberpunk dashboard design',
-    description: 'Flutter-Firebase app that tracks real-time energy use, air quality, and carbon footprint, targeting college students and campuses',
+    description: 'Cyberpunk inspired display combines retro-pixel aesthetics with modern interface elements',
     image: '/ops.png',
     date: 'Aug 2024 - Dec 2024',
     achievements: [
@@ -78,7 +78,7 @@ const projects = [
       'Developed website for hotel booking and accommodation services',
     ],
     technologies: ['vite js', 'react', 'Typescript', 'vscode'],
-    demoUrl: 'https://lovable.dev/projects/96f629c9-6031-4f68-8bd0-680a3c64b6e3',
+    demoUrl: 'https://resortseaside.vercel.app/',
     githubUrl: 'https://github.com/AkshatJha0411/teleop-with-ros'
   },
   {
