@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink, Github, Linkedin, Code, Instagram } from 'lucide-react';
+import { ArrowDown, ExternalLink, Github, Linkedin, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BackgroundPaths } from '@/components/ui/background-paths';
+import Image from 'next/image';
 
 export default function Hero() {
   const scrollToAbout = () => {
@@ -15,7 +16,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Paths Component - without title to remove background text */}
+      {/* Background Paths Component */}
       <div className="absolute inset-0">
         <BackgroundPaths title="" />
       </div>
@@ -27,21 +28,27 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1"
-          >
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-              <span className="text-4xl font-bold bg-gradient-to-br from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                MM
-              </span>
-            </div>
-          </motion.div>
+          {/* ✅ Profile Image instead of “MM” */}
+         <motion.div
+  initial={{ opacity: 0, scale: 0.5 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="mx-auto w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1"
+>
+  <div className="w-full h-full rounded-full bg-background overflow-hidden">
+    <Image
+      src="/profile.jpg"
+      alt="Mehdi Moungid"
+      width={160}
+      height={160}
+      className="rounded-full object-cover w-full h-full"
+      priority
+    />
+  </div>
+</motion.div>
 
-          {/* Animated Name - positioned just below icon */}
+
+          {/* Animated Name */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -50,10 +57,7 @@ export default function Hero() {
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
               {"Mehdi Moungid".split(" ").map((word, wordIndex) => (
-                <span
-                  key={wordIndex}
-                  className="inline-block mr-4 last:mr-0"
-                >
+                <span key={wordIndex} className="inline-block mr-4 last:mr-0">
                   {word.split("").map((letter, letterIndex) => (
                     <motion.span
                       key={`${wordIndex}-${letterIndex}`}
@@ -77,7 +81,7 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          {/* Professional Info Container */}
+          {/* Professional Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,13 +89,13 @@ export default function Hero() {
             className="mx-auto max-w-2xl"
             style={{ margin: '10px' }}
           >
-            <div 
+            <div
               className="backdrop-blur-sm border rounded-lg"
               style={{
                 backgroundColor: 'rgba(128, 128, 128, 0.1)',
                 padding: '20px',
                 border: '2px solid rgba(100, 100, 100, 0.5)',
-                lineHeight: '1.6'
+                lineHeight: '1.6',
               }}
             >
               <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
@@ -127,7 +131,7 @@ export default function Hero() {
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"
@@ -146,24 +150,6 @@ export default function Hero() {
               </a>
             </Button>
 
-            {/* <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="group hover:bg-pink-50 hover:border-pink-300 dark:hover:bg-pink-900/20"
-            >
-              <a
-                href="https://www.instagram.com/mehdi.onmarz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2"
-              >
-                <Instagram className="w-5 h-5 group-hover:text-pink-600" />
-                <span>Instagram</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </Button> */}
-            
             <Button
               variant="outline"
               size="lg"
@@ -183,7 +169,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* CTA Button with Discover Excellence Style */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -213,7 +199,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator - moved to bottom right */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

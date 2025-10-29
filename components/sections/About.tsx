@@ -1,8 +1,9 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Heart, Zap } from 'lucide-react';
+import { motion } from 'framer-motion'
+import { Card, CardContent } from '@/components/ui/card'
+import { GraduationCap, Heart, Zap } from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -15,13 +16,16 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">About Me</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
+            About Me
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Driven by curiosity and powered by code
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* === Colonne gauche avec texte + photo === */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -29,26 +33,40 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-foreground">One word which drives me - &#34;Curiosity&#34;</h3>
+            {/* ✅ Photo ici */}
+            <div className="flex justify-center">
+              <Image
+                src="/profile.jpg" // ton image dans /public/profile.jpg
+                alt="My photo"
+                width={180}
+                height={180}
+                className="rounded-full shadow-lg border-4 border-blue-200 dark:border-blue-900"
+              />
+            </div>
+
+            <div className="space-y-4 text-center md:text-left">
+              <h3 className="text-2xl font-semibold text-foreground">
+                One word which drives me - &#34;Curiosity&#34;
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                I&apos;m an aspiring software engineer currently pursuing academics in AI and Robotics at IIT Mandi. 
-                With a strong foundation in full-stack development and applied machine learning, I thrive on 
+                I&apos;m an aspiring software engineer currently pursuing academics in AI and Robotics at IIT Mandi.
+                With a strong foundation in full-stack development and applied machine learning, I thrive on
                 building real-world applications that make a difference.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                From voice bots to AI agents, I enjoy creating intelligent solutions that solve complex problems. 
-                My passion for automation drives me to build systems that not only work efficiently but also 
+                From voice bots to AI agents, I enjoy creating intelligent solutions that solve complex problems.
+                My passion for automation drives me to build systems that not only work efficiently but also
                 continuously improve themselves.
               </p>
             </div>
 
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground justify-center md:justify-start">
               <GraduationCap className="w-4 h-4" />
               <span>Emsi • Miage</span>
             </div>
           </motion.div>
 
+          {/* === Colonne droite (cartes) === */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,7 +83,7 @@ export default function About() {
                   <h4 className="font-semibold text-foreground">Innovation Focus</h4>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Building cutting-edge AI agents and automation tools that streamline complex workflows 
+                  Building cutting-edge AI agents and automation tools that streamline complex workflows
                   and enhance user experiences.
                 </p>
               </CardContent>
@@ -80,7 +98,7 @@ export default function About() {
                   <h4 className="font-semibold text-foreground">Passion Projects</h4>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  From geospatial analysis tools to voice AI systems, I love tackling diverse challenges 
+                  From geospatial analysis tools to voice AI systems, I love tackling diverse challenges
                   that push the boundaries of technology.
                 </p>
               </CardContent>
@@ -95,7 +113,7 @@ export default function About() {
                   <h4 className="font-semibold text-foreground">Continuous Learning</h4>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Always exploring new technologies and methodologies to stay at the forefront of 
+                  Always exploring new technologies and methodologies to stay at the forefront of
                   AI/ML and software development.
                 </p>
               </CardContent>
@@ -104,5 +122,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  );
+  )
 }
