@@ -9,7 +9,7 @@ const sampleTiers: PricingTier[] = [
     {
         name: "Basic",
         icon: <Pencil className="w-6 h-6" />,
-        price: 2400,
+        price: 3000,
         description: "Perfect for portfolio websites & personal projects",
         color: "amber",
         features: [
@@ -23,7 +23,7 @@ const sampleTiers: PricingTier[] = [
     {
         name: "Standard Website",
         icon: <Star className="w-6 h-6" />,
-        price: 3000,
+        price: 4500,
         description: "For small companies & entrepreneurs",
         color: "blue",
         features: [
@@ -37,7 +37,7 @@ const sampleTiers: PricingTier[] = [
     {
         name: "Pro Website",
         icon: <Sparkles className="w-6 h-6" />,
-        price: 4200,
+        price: 7500,
         description: "For professional companies & agencies",
         color: "purple",
         features: [
