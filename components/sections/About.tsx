@@ -1,126 +1,128 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { Card, CardContent } from '@/components/ui/card'
-import { GraduationCap, Heart, Zap } from 'lucide-react'
-import Image from 'next/image'
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const meta = [
+  { key: 'name',   value: 'Mehdi Moungid',     cls: 'text-cyan-400' },
+  { key: 'edu',    value: 'Emsi • Miage',        cls: 'text-foreground' },
+  { key: 'loc',    value: 'Casablanca, Morocco', cls: 'text-foreground' },
+  { key: 'focus',  value: 'AI/ML, Fullstack',    cls: 'text-green-400' },
+  { key: 'status', value: 'open to work',        cls: 'text-green-400' },
+];
+
+const currentFocus = [
+  'AI integrations (chatbots, automation)',
+  'SaaS platforms (Airbnb-like systems)',
+  'Performance & UX (premium-level interfaces)',
+  'System design & scalable architecture',
+];
+
+const whatIBring = [
+  'Clean architecture & scalable code',
+  'Strong UX/UI sense — not just dev',
+  'Fast execution (startup mindset)',
+  'End-to-end product thinking',
+];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-20 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto font-mono">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">
-            About Me
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Driven by curiosity and powered by code
-          </p>
+          <p className="text-green-400 text-sm">$ cat about.md</p>
+          <div className="border-t border-border mt-2" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* === Colonne gauche avec texte + photo === */}
+        <div className="grid md:grid-cols-3 gap-10">
+          {/* Profile column */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-5"
           >
-            {/* ✅ Photo ici */}
-            <div className="flex justify-center">
+            <div className="border border-border inline-block p-0.5">
               <Image
-                src="/profile.jpg" // ton image dans /public/profile.jpg
-                alt="My photo"
-                width={180}
-                height={180}
-                className="rounded-full shadow-lg border-4 border-blue-200 dark:border-blue-900"
+                src="/profile.jpg"
+                alt="Mehdi Moungid"
+                width={160}
+                height={160}
+                className="object-cover grayscale contrast-110"
               />
             </div>
 
-            <div className="space-y-4 text-center md:text-left">
-              <h3 className="text-2xl font-semibold text-foreground">
-                One word which drives me - &#34;Curiosity&#34;
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                I&apos;m an aspiring software engineer currently pursuing academics in AI and Robotics at IIT Mandi.
-                With a strong foundation in full-stack development and applied machine learning, I thrive on
-                building real-world applications that make a difference.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                From voice bots to AI agents, I enjoy creating intelligent solutions that solve complex problems.
-                My passion for automation drives me to build systems that not only work efficiently but also
-                continuously improve themselves.
-              </p>
-            </div>
-
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground justify-center md:justify-start">
-              <GraduationCap className="w-4 h-4" />
-              <span>Emsi • Miage</span>
+            <div className="space-y-1.5 text-xs">
+              {meta.map(({ key, value, cls }) => (
+                <div key={key} className="flex gap-2">
+                  <span className="text-muted-foreground w-12 shrink-0">{key}:</span>
+                  <span className={cls}>{value}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* === Colonne droite (cartes) === */}
+          {/* Bio column */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="md:col-span-2 space-y-6 text-xs"
           >
-            <Card className="border-2 border-blue-100 dark:border-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 transition-colors bg-background/50 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <h4 className="font-semibold text-foreground">Innovation Focus</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Building cutting-edge AI agents and automation tools that streamline complex workflows
-                  and enhance user experiences.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="border-l-2 border-green-400/40 pl-4 space-y-3">
+              <p className="text-muted-foreground/40"># about.md</p>
+              <p className="text-muted-foreground leading-relaxed">
+                <span className="text-foreground">One word drives me</span> — curiosity.
+                I build real-world full-stack and AI/ML applications that make a difference,
+                from voice bots to intelligent automation systems.
+              </p>
+              <p className="text-muted-foreground/50 italic">
+                &quot;I don&apos;t just build apps — I build products.&quot;
+              </p>
+            </div>
 
-            <Card className="border-2 border-teal-100 dark:border-teal-900/20 hover:border-teal-300 dark:hover:border-teal-700 transition-colors bg-background/50 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 bg-teal-100 dark:bg-teal-900/20 rounded-lg">
-                    <Heart className="w-5 h-5 text-teal-600" />
-                  </div>
-                  <h4 className="font-semibold text-foreground">Passion Projects</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  From geospatial analysis tools to voice AI systems, I love tackling diverse challenges
-                  that push the boundaries of technology.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="space-y-1.5">
+              <p className="text-green-400">## current_focus</p>
+              {currentFocus.map((item, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, x: -6 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 + i * 0.07 }}
+                  viewport={{ once: true }}
+                  className="text-muted-foreground pl-2"
+                >
+                  <span className="text-cyan-400/60 mr-2">▸</span>{item}
+                </motion.p>
+              ))}
+            </div>
 
-            <Card className="border-2 border-purple-100 dark:border-purple-900/20 hover:border-purple-300 dark:hover:border-purple-700 transition-colors bg-background/50 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                    <GraduationCap className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <h4 className="font-semibold text-foreground">Continuous Learning</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Always exploring new technologies and methodologies to stay at the forefront of
-                  AI/ML and software development.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="space-y-1.5">
+              <p className="text-green-400">## what_i_bring</p>
+              {whatIBring.map((item, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, x: -6 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.5 + i * 0.07 }}
+                  viewport={{ once: true }}
+                  className="text-muted-foreground pl-2"
+                >
+                  <span className="text-green-400/60 mr-2">✓</span>{item}
+                </motion.p>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,183 +1,151 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Building, MapPin, Calendar, TrendingUp } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const experiences = [
-{
-  company: 'Solupharm',
-  role: 'Fullstack Developer Intern',
-  location: 'Montreal, QC',
-  period: 'Oct. 2024 – Dec. 2024',
-  achievements: [
-    "Collaborated cross-functionally to define and prioritize features and requirements.",
-    "Developed an interactive web platform using Next.js to centralize task management and employee scheduling.",
-    "Enhanced collaboration and communication with an intuitive and efficient user interface.",
-    "Integrated advanced scheduling features for accurate real-time activity tracking.",
-    "Designed a modular and scalable architecture, reducing maintenance time and enabling new feature additions."
-  ],
-  technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React', 'TypeScript', 'Radix'],
-  color: 'red'
-},
-{
-  company: 'LogInfo',
-  role: 'Backend & Frontend Intern',
-  location: 'Casablanca, Morocco',
-  period: 'Mar. 2024 – Sept. 2024',
-  achievements: [
-    "Deployed applications with Next.js and React on AWS (EC2, RDS, S3).",
-    "Collaborated with product and QA teams to automate testing and deployments.",
-    "Integrated Docker and Azure DevOps for environment management.",
-    "Performed code reviews, unit testing, and system testing, resolving software defects.",
-    "Created code templates to share with other developers."
-  ],
-  technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React.js'],
-  color: 'purple'
-},
-{
-  company: 'Hpsearch',
-  role: 'WordPress Developer Intern',
-  location: 'Casablanca, Morocco',
-  period: 'June 2023 – Aug. 2023',
-  achievements: [
-    "Developed a WordPress plugin enabling integration of third-party APIs for secure data storage and retrieval.",
-    "Implemented advanced techniques, such as custom post types, to enhance user experience.",
-    "Built multiple websites using WordPress, ensuring responsive and optimized design across all devices."
-  ],
-  technologies: ['WordPress', 'Elementor', 'PHP'],
-  color: 'orange'
-},
-{
-  company: 'SDAIM',
-  role: 'Android Developer Intern',
-  location: 'Casablanca, Morocco',
-  period: 'June 2021 – Sept. 2021',
-  achievements: [
-    "Developed and maintained a mobile application.",
-    "Conducted code reviews, unit tests, and system testing.",
-    "Developed backend tools with Payload CMS and MongoDB.",
-    "Contributed to continuous improvement of software development processes and best practices."
-  ],
-  technologies: ['Payload CMS', 'React Native', 'Node.js', 'Tailwind', 'MongoDB', 'S3', 'Figma', 'Expo'],
-  color: 'yellow'
-},
-{
-  company: 'SITA (Mohammed V Airport, Nouaceur)',
-  role: 'Network Technician Intern',
-  location: 'Casablanca, Morocco',
-  period: 'May 2020 – June 2020',
-  achievements: [
-    "Assisted in managing network infrastructures.",
-    "Gained introduction to network supervision and monitoring."
-  ],
-  technologies: ['Cisco Networking', 'Network Monitoring'],
-  color: 'green'
-},
+  {
+    company: 'Solupharm',
+    role: 'Fullstack Developer Intern',
+    location: 'Montreal, QC',
+    period: 'Oct. 2024 – Dec. 2024',
+    achievements: [
+      'Collaborated cross-functionally to define and prioritize features.',
+      'Developed interactive web platform using Next.js for task management.',
+      'Integrated advanced scheduling features for real-time activity tracking.',
+      'Designed modular and scalable architecture, reducing maintenance time.',
+    ],
+    technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React', 'TypeScript'],
+  },
+  {
+    company: 'LogInfo',
+    role: 'Backend & Frontend Intern',
+    location: 'Casablanca, Morocco',
+    period: 'Mar. 2024 – Sept. 2024',
+    achievements: [
+      'Deployed applications with Next.js and React on AWS (EC2, RDS, S3).',
+      'Integrated Docker and Azure DevOps for environment management.',
+      'Performed code reviews, unit testing, and system testing.',
+      'Created code templates to share with other developers.',
+    ],
+    technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React.js'],
+  },
+  {
+    company: 'Hpsearch',
+    role: 'WordPress Developer Intern',
+    location: 'Casablanca, Morocco',
+    period: 'June 2023 – Aug. 2023',
+    achievements: [
+      'Developed a WordPress plugin integrating third-party APIs.',
+      'Built multiple websites with responsive, optimized design.',
+    ],
+    technologies: ['WordPress', 'Elementor', 'PHP'],
+  },
+  {
+    company: 'SDAIM',
+    role: 'Android Developer Intern',
+    location: 'Casablanca, Morocco',
+    period: 'June 2021 – Sept. 2021',
+    achievements: [
+      'Developed and maintained a mobile application.',
+      'Developed backend tools with Payload CMS and MongoDB.',
+    ],
+    technologies: ['Payload CMS', 'React Native', 'Node.js', 'MongoDB', 'Expo'],
+  },
+  {
+    company: 'SITA',
+    role: 'Network Technician Intern',
+    location: 'Mohammed V Airport, Casablanca',
+    period: 'May 2020 – June 2020',
+    achievements: [
+      'Assisted in managing network infrastructures.',
+      'Gained introduction to network supervision and monitoring.',
+    ],
+    technologies: ['Cisco Networking', 'Network Monitoring'],
+  },
 ];
 
 export default function Experience() {
+  const [expanded, setExpanded] = useState<number | null>(0);
+
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="experience" className="py-20 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto font-mono">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building innovative solutions and driving measurable impact
-          </p>
+          <p className="text-green-400 text-sm">$ ls -la ~/experience/</p>
+          <p className="text-xs text-muted-foreground mt-0.5">total {experiences.length}</p>
+          <div className="border-t border-border mt-2" />
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-teal-500 hidden md:block" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="relative"
+        <div className="space-y-1">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -8 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.07 }}
+              viewport={{ once: true }}
+            >
+              <button
+                className="w-full text-left border border-border hover:border-green-400/40 transition-all duration-200 p-3 sm:p-4 group"
+                onClick={() => setExpanded(expanded === index ? null : index)}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-6 top-8 w-4 h-4 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full border-4 border-background hidden md:block" />
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="text-muted-foreground/50 text-xs hidden sm:inline">drwxr-xr-x</span>
+                    <span className="text-cyan-400 text-sm font-semibold">{exp.company}/</span>
+                    <span className="text-muted-foreground text-xs">{exp.role}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                    <span className="hidden sm:inline">{exp.location}</span>
+                    <span>{exp.period}</span>
+                    <span className={`transition-colors ${expanded === index ? 'text-green-400' : 'group-hover:text-foreground'}`}>
+                      {expanded === index ? '[-]' : '[+]'}
+                    </span>
+                  </div>
+                </div>
+              </button>
 
-                <Card className={`md:ml-16 hover:shadow-lg transition-all duration-300 border-l-4 bg-background/50 backdrop-blur-sm ${
-                  exp.color === 'blue' 
-                    ? 'border-l-blue-500 hover:border-l-blue-600' 
-                    : 'border-l-teal-500 hover:border-l-teal-600'
-                }`}>
-                  <CardHeader>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                      <div>
-                        <CardTitle className="text-xl mb-2 flex items-center gap-2 text-foreground">
-                          <Building className="w-5 h-5" />
-                          {exp.company}
-                        </CardTitle>
-                        <p className="text-lg font-semibold text-muted-foreground mb-2">
-                          {exp.role}
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-2 text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {exp.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {exp.period}
-                          </span>
+              <AnimatePresence>
+                {expanded === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="border border-t-0 border-border bg-muted/10 p-4 sm:p-5 space-y-4 text-xs">
+                      <div className="space-y-1.5">
+                        <p className="text-muted-foreground/40"># achievements</p>
+                        {exp.achievements.map((a, i) => (
+                          <p key={i} className="text-muted-foreground pl-2">
+                            <span className="text-green-400/70 mr-2">▸</span>{a}
+                          </p>
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-muted-foreground/40"># stack</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {exp.technologies.map((tech, i) => (
+                            <span key={i} className="border border-border px-2 py-0.5 text-muted-foreground hover:text-foreground hover:border-green-400/40 transition-colors">
+                              {tech}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="space-y-3">
-                      <h4 className="font-semibold flex items-center gap-2 dark:text-blue-500 text-teal-500 ">
-                        <TrendingUp className="w-4 h-4" />
-                        Key Achievements
-                      </h4>
-                      <ul className="space-y-2">
-                        {exp.achievements.map((achievement, achIndex) => (
-                          <li key={achIndex} className="flex items-start gap-3">
-                            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mt-2 flex-shrink-0" />
-                            <span className="text-sm text-muted-foreground leading-relaxed">
-                              {achievement}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground dark:text-orange-300">
-                        Technologies Used :
-                        </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex} 
-                            variant="secondary"
-                            className="bg-muted/50 hover:bg-muted/80 transition-colors backdrop-blur-sm"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

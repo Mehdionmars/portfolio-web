@@ -1,10 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
@@ -12,145 +8,114 @@ interface HeaderProps {
 }
 
 const navigation = [
-  { name: 'Home', href: '#hero' },
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Achievements', href: '#achievements' },
-  { name: 'Contact', href: '#contact' },
+  { name: '~/',          href: '#hero' },
+  { name: 'about',       href: '#about' },
+  { name: 'exp',         href: '#experience' },
+  { name: 'projects',    href: '#projects' },
+  { name: 'skills',      href: '#skills' },
+  { name: 'github',      href: '#github' },
+  { name: 'awards',      href: '#achievements' },
+  { name: 'pricing',     href: '#pricing' },
+  { name: 'contact',     href: '#contact' },
 ];
 
 export default function Header({ activeSection }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
   return (
-    <motion.header
+    <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-lg border-b border-border'
-          : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur border-b border-border' : 'bg-transparent'
       )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-12">
+          {/* Prompt logo */}
+          <button
+            onClick={() => scrollToSection('#hero')}
+            className="flex items-center gap-0.5 text-xs hover:opacity-80 transition-opacity"
           >
-            <button
-              onClick={() => scrollToSection('#hero')}
-              className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
-            >
- 
-             </button>
-          </motion.div>
+            <span className="text-muted-foreground">mehdi</span>
+            <span className="text-green-400">@</span>
+            <span className="text-cyan-400">portfolio</span>
+            <span className="text-muted-foreground">:~$</span>
+            <span className="ml-1 inline-block w-1.5 h-3.5 bg-green-400 cursor-blink" />
+          </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={cn(
-                  'px-3 py-2 text-sm font-medium transition-colors relative',
-                  activeSection === item.href.substring(1)
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-muted-foreground hover:text-foreground'
-                )}
-              >
-                {item.name}
-                {activeSection === item.href.substring(1) && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
-                    layoutId="activeTab"
-                    initial={false}
-                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="w-9 h-9 p-0"
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-
-            {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="md:hidden w-9 h-9 p-0"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <Menu className="h-4 w-4" />
-              )}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            className="md:hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/90 backdrop-blur-lg border-t border-border">
-              {navigation.map((item) => (
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-0.5">
+            {navigation.map((item) => {
+              const isActive = item.href.substring(1) === activeSection;
+              return (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
                   className={cn(
-                    'block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors',
-                    activeSection === item.href.substring(1)
-                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    'px-2.5 py-1 text-xs transition-all duration-200',
+                    isActive
+                      ? 'text-green-400 bg-green-400/10 border border-green-400/30'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-white/5 border border-transparent'
                   )}
                 >
-                  {item.name}
+                  {isActive ? (
+                    <span><span className="text-green-400/60">./</span>{item.name}</span>
+                  ) : (
+                    <span>./{item.name}</span>
+                  )}
                 </button>
-              ))}
-            </div>
-          </motion.div>
+              );
+            })}
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            className="lg:hidden text-muted-foreground hover:text-foreground text-xs transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? '[close]' : '[menu]'}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden border-t border-border bg-background/98 py-2">
+            {navigation.map((item) => {
+              const isActive = item.href.substring(1) === activeSection;
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={cn(
+                    'block w-full text-left px-4 py-2 text-xs transition-colors',
+                    isActive
+                      ? 'text-green-400 bg-green-400/5'
+                      : 'text-muted-foreground hover:text-foreground'
+                  )}
+                >
+                  <span className={isActive ? 'text-green-400' : 'text-muted-foreground/50'}>
+                    {isActive ? '▶ ' : '  '}
+                  </span>
+                  ./{item.name}
+                </button>
+              );
+            })}
+          </div>
         )}
       </div>
-    </motion.header>
+    </header>
   );
 }

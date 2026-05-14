@@ -1,223 +1,161 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, ExternalLink, Github, Linkedin, Code } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { BackgroundPaths } from '@/components/ui/background-paths';
-import Image from 'next/image';
+import { Github, Linkedin, Code } from 'lucide-react';
+import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+
+const bootLines = [
+  { text: '$ whoami', delay: 0.3, color: 'text-green-400' },
+  { text: '  Mehdi Moungid', delay: 0.7, color: 'text-foreground font-semibold' },
+  { text: '', delay: 0.9, color: '' },
+  { text: '$ cat role.txt', delay: 1.0, color: 'text-green-400' },
+  { text: '  Software Engineer & AI/ML Enthusiast', delay: 1.4, color: 'text-cyan-400' },
+  { text: '', delay: 1.5, color: '' },
+  { text: '$ echo $TAGLINE', delay: 1.6, color: 'text-green-400' },
+  { text: '  Building intelligent solutions, one line of code at a time', delay: 2.0, color: 'text-muted-foreground' },
+  { text: '', delay: 2.1, color: '' },
+  { text: '$ ls --links/', delay: 2.2, color: 'text-green-400' },
+];
+
+const links = [
+  { label: 'linkedin/', href: 'https://www.linkedin.com/in/moungid-mehdi/', Icon: Linkedin, color: 'text-blue-400 hover:text-blue-300' },
+  { label: 'github/', href: 'https://github.com/Mehdionmars', Icon: Github, color: 'text-foreground hover:text-white' },
+  { label: 'leetcode/', href: 'https://leetcode.com/Mehdionmars', Icon: Code, color: 'text-orange-400 hover:text-orange-300' },
+];
 
 export default function Hero() {
+  const [cursorVisible, setCursorVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => setCursorVisible((v) => !v), 530);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Paths Component */}
-      <div className="absolute inset-0">
-        <BackgroundPaths title="" />
-      </div>
+  const titleComponent = (
+    <div className="space-y-4 font-mono mb-6">
+      <motion.p
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="text-green-400 text-xs sm:text-sm tracking-widest uppercase"
+      >
+        $ ./init-portfolio.sh
+      </motion.p>
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
-        >
-          {/* ✅ Profile Image instead of “MM” */}
-         <motion.div
-  initial={{ opacity: 0, scale: 0.5 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
-  className="mx-auto w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-teal-600 p-1"
->
-  <div className="w-full h-full rounded-full bg-background overflow-hidden">
-    <Image
-      src="/profile.jpg"
-      alt="Mehdi Moungid"
-      width={160}
-      height={160}
-      className="rounded-full object-cover w-full h-full"
-      priority
-    />
-  </div>
-</motion.div>
+      <motion.h1
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
+      >
+        Mehdi Moungid
+      </motion.h1>
 
-
-          {/* Animated Name */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
-              {"Mehdi Moungid".split(" ").map((word, wordIndex) => (
-                <span key={wordIndex} className="inline-block mr-4 last:mr-0">
-                  {word.split("").map((letter, letterIndex) => (
-                    <motion.span
-                      key={`${wordIndex}-${letterIndex}`}
-                      initial={{ y: 100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        delay: 0.6 + wordIndex * 0.1 + letterIndex * 0.03,
-                        type: "spring",
-                        stiffness: 150,
-                        damping: 25,
-                      }}
-                      className="inline-block text-transparent bg-clip-text 
-                      bg-gradient-to-r from-neutral-900 to-neutral-700/80 
-                      dark:from-white dark:to-white/80"
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
-            </h1>
-          </motion.div>
-
-          {/* Professional Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mx-auto max-w-2xl"
-            style={{ margin: '10px' }}
-          >
-            <div
-              className="backdrop-blur-sm border rounded-lg"
-              style={{
-                backgroundColor: 'rgba(128, 128, 128, 0.1)',
-                padding: '20px',
-                border: '2px solid rgba(100, 100, 100, 0.5)',
-                lineHeight: '1.6',
-              }}
-            >
-              <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
-                Software Engineer & AI/ML Enthusiast
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Building intelligent solutions and automating the future, one line of code at a time
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex justify-center flex-wrap gap-4"
-          >
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="group hover:bg-blue-50 hover:border-blue-300 dark:hover:bg-blue-900/20"
-            >
-              <a
-                href="https://www.linkedin.com/in/moungid-mehdi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2"
-              >
-                <Linkedin className="w-5 h-5 group-hover:text-blue-600" />
-                <span>LinkedIn</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="group hover:bg-gray-50 hover:border-gray-300 dark:hover:bg-gray-800"
-            >
-              <a
-                href="https://github.com/Mehdionmars"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2"
-              >
-                <Github className="w-5 h-5" />
-                <span>GitHub</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="group hover:bg-orange-50 hover:border-orange-300 dark:hover:bg-orange-900/20"
-            >
-              <a
-                href="https://leetcode.com/Mehdionmars"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2"
-              >
-                <Code className="w-5 h-5 group-hover:text-orange-600" />
-                <span>LeetCode</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            <div
-              className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
-              dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
-              overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <Button
-                variant="ghost"
-                onClick={scrollToAbout}
-                className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
-                bg-white/95 hover:bg-white/100 dark:bg-black/95 dark:hover:bg-black/100 
-                text-black dark:text-white transition-all duration-300 
-                group-hover:-translate-y-0.5 border border-black/10 dark:border-white/10
-                hover:shadow-md dark:hover:shadow-neutral-800/50"
-              >
-                <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                  Explore My Work
-                </span>
-                <ArrowDown className="ml-3 w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300" />
-              </Button>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
+      <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 right-8 z-20"
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="text-sm sm:text-base text-muted-foreground"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-muted-foreground rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
+        Software Engineer &amp; AI/ML Enthusiast
+      </motion.p>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="text-xs text-muted-foreground/50"
+      >
+        scroll to explore ↓
+      </motion.p>
+    </div>
+  );
+
+  return (
+    <section id="hero" className="bg-background overflow-hidden">
+      <ContainerScroll titleComponent={titleComponent}>
+        {/* Terminal window inside the 3D card */}
+        <div className="h-full flex flex-col bg-[#0a0a0a] font-mono text-sm overflow-hidden">
+          {/* Terminal title bar */}
+          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/5 flex-shrink-0">
+            <span className="w-3 h-3 rounded-full bg-red-500/70 block" />
+            <span className="w-3 h-3 rounded-full bg-yellow-500/70 block" />
+            <span className="w-3 h-3 rounded-full bg-green-500/70 block" />
+            <span className="ml-3 text-xs text-white/40">
+              mehdi@portfolio: ~ — bash — 80×24
+            </span>
+          </div>
+
+          {/* Terminal output */}
+          <div className="flex-1 p-4 md:p-6 space-y-1 overflow-auto">
+            {bootLines.map((line, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: line.delay, duration: 0.2 }}
+                className={`leading-relaxed ${line.color}`}
+              >
+                {line.text || '\u00A0'}
+              </motion.p>
+            ))}
+
+            {/* Links row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.6, duration: 0.2 }}
+              className="flex flex-wrap gap-5 pt-1 pl-2"
+            >
+              {links.map(({ label, href, Icon, color }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${color} text-sm flex items-center gap-1.5 transition-colors`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {label}
+                </a>
+              ))}
+            </motion.div>
+
+            {/* Active prompt */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 3.0, duration: 0.2 }}
+              className="flex items-center gap-2 pt-4"
+            >
+              <span className="text-green-400">$</span>
+              <button
+                onClick={scrollToAbout}
+                className="text-muted-foreground hover:text-green-400 transition-colors underline-offset-4 hover:underline"
+              >
+                ./explore-work.sh
+              </button>
+              <span
+                className={`inline-block w-2 h-4 bg-green-400 transition-opacity ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}
+              />
+            </motion.div>
+          </div>
+
+          {/* Status bar */}
+          <div className="flex items-center justify-between px-4 py-1 border-t border-white/10 bg-white/5 text-xs text-white/30 flex-shrink-0">
+            <span>
+              <span className="text-green-400/70">INSERT</span>
+              &nbsp;|&nbsp;Casablanca, Morocco
+            </span>
+            <span>ready</span>
+          </div>
+        </div>
+      </ContainerScroll>
     </section>
   );
 }
