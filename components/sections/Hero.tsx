@@ -1,161 +1,79 @@
-'use client';
+import type { CSSProperties } from 'react';
+import { ArrowRight, Download } from 'lucide-react';
+import { links, type Locale } from '@/lib/content';
+import { dictionaries } from '@/lib/i18n';
+import { ParallaxLayers } from '@/components/ui/parallax-layers';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Code } from 'lucide-react';
-import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+const step = (i: number) => ({ '--i': i }) as CSSProperties;
 
-const bootLines = [
-  { text: '$ whoami', delay: 0.3, color: 'text-green-400' },
-  { text: '  Mehdi Moungid', delay: 0.7, color: 'text-foreground font-semibold' },
-  { text: '', delay: 0.9, color: '' },
-  { text: '$ cat role.txt', delay: 1.0, color: 'text-green-400' },
-  { text: '  Software Engineer & AI/ML Enthusiast', delay: 1.4, color: 'text-cyan-400' },
-  { text: '', delay: 1.5, color: '' },
-  { text: '$ echo $TAGLINE', delay: 1.6, color: 'text-green-400' },
-  { text: '  Building intelligent solutions, one line of code at a time', delay: 2.0, color: 'text-muted-foreground' },
-  { text: '', delay: 2.1, color: '' },
-  { text: '$ ls --links/', delay: 2.2, color: 'text-green-400' },
-];
-
-const links = [
-  { label: 'linkedin/', href: 'https://www.linkedin.com/in/moungid-mehdi/', Icon: Linkedin, color: 'text-blue-400 hover:text-blue-300' },
-  { label: 'github/', href: 'https://github.com/Mehdionmars', Icon: Github, color: 'text-foreground hover:text-white' },
-  { label: 'leetcode/', href: 'https://leetcode.com/Mehdionmars', Icon: Code, color: 'text-orange-400 hover:text-orange-300' },
-];
-
-export default function Hero() {
-  const [cursorVisible, setCursorVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => setCursorVisible((v) => !v), 530);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const titleComponent = (
-    <div className="space-y-4 font-mono mb-6">
-      <motion.p
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="text-green-400 text-xs sm:text-sm tracking-widest uppercase"
-      >
-        $ ./init-portfolio.sh
-      </motion.p>
-
-      <motion.h1
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight"
-      >
-        Mehdi Moungid
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-sm sm:text-base text-muted-foreground"
-      >
-        Software Engineer &amp; AI/ML Enthusiast
-      </motion.p>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="text-xs text-muted-foreground/50"
-      >
-        scroll to explore ↓
-      </motion.p>
-    </div>
-  );
+export default function Hero({ locale }: { locale: Locale }) {
+  const t = dictionaries[locale].hero;
+  const status = t.status.find((s) => s.ok);
 
   return (
-    <section id="hero" className="bg-background overflow-hidden">
-      <ContainerScroll titleComponent={titleComponent}>
-        {/* Terminal window inside the 3D card */}
-        <div className="h-full flex flex-col bg-[#0a0a0a] font-mono text-sm overflow-hidden">
-          {/* Terminal title bar */}
-          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/5 flex-shrink-0">
-            <span className="w-3 h-3 rounded-full bg-red-500/70 block" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/70 block" />
-            <span className="w-3 h-3 rounded-full bg-green-500/70 block" />
-            <span className="ml-3 text-xs text-white/40">
-              mehdi@portfolio: ~ — bash — 80×24
-            </span>
-          </div>
-
-          {/* Terminal output */}
-          <div className="flex-1 p-4 md:p-6 space-y-1 overflow-auto">
-            {bootLines.map((line, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: line.delay, duration: 0.2 }}
-                className={`leading-relaxed ${line.color}`}
-              >
-                {line.text || '\u00A0'}
-              </motion.p>
+    <section id="top" tabIndex={-1} aria-labelledby="hero-title" className="relative overflow-hidden outline-none">
+      {/* First screen: the layered landscape, the name between its layers, the offer and both actions on the ground. */}
+      <div className="relative z-[2] flex min-h-[100svh] flex-col items-center justify-end px-5 pb-[8svh] sm:px-8">
+        <ParallaxLayers>
+          <h1
+            id="hero-title"
+            className="boot px-4 text-center text-[19vw] font-semibold leading-[0.88] tracking-[-0.05em] text-white sm:text-[clamp(4rem,9.5vw,10rem)]"
+            style={step(0)}
+          >
+            {t.name.split(' ').map((word, i) => (
+              <span key={word} className="block sm:inline">
+                {i > 0 && <span className="hidden sm:inline"> </span>}
+                {word}
+              </span>
             ))}
+          </h1>
+        </ParallaxLayers>
 
-            {/* Links row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.6, duration: 0.2 }}
-              className="flex flex-wrap gap-5 pt-1 pl-2"
-            >
-              {links.map(({ label, href, Icon, color }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${color} text-sm flex items-center gap-1.5 transition-colors`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {label}
-                </a>
-              ))}
-            </motion.div>
-
-            {/* Active prompt */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3.0, duration: 0.2 }}
-              className="flex items-center gap-2 pt-4"
-            >
-              <span className="text-green-400">$</span>
-              <button
-                onClick={scrollToAbout}
-                className="text-muted-foreground hover:text-green-400 transition-colors underline-offset-4 hover:underline"
-              >
-                ./explore-work.sh
-              </button>
-              <span
-                className={`inline-block w-2 h-4 bg-green-400 transition-opacity ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}
-              />
-            </motion.div>
-          </div>
-
-          {/* Status bar */}
-          <div className="flex items-center justify-between px-4 py-1 border-t border-white/10 bg-white/5 text-xs text-white/30 flex-shrink-0">
-            <span>
-              <span className="text-green-400/70">INSERT</span>
-              &nbsp;|&nbsp;Casablanca, Morocco
-            </span>
-            <span>ready</span>
+        <div className="dark relative z-40 flex w-full max-w-md flex-col items-center text-center text-white sm:max-w-none">
+          {status && (
+            <p className="boot inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/20 px-3.5 py-1.5 text-sm text-white/75 backdrop-blur-md" style={step(1)}>
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="font-medium text-white">{status.value}</span>
+              <span aria-hidden="true">·</span>
+              {t.place}
+            </p>
+          )}
+          <p className="boot mt-4 text-xl font-medium tracking-[-0.02em] sm:text-2xl" style={step(2)}>
+            {t.role}
+          </p>
+          <div className="boot mt-7 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row" style={step(3)}>
+            <a href={links.cv} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3.5">
+              <Download aria-hidden="true" className="h-4 w-4" />
+              {t.cv}
+            </a>
+            <a href="#contact" className="btn-ghost border-white/25 bg-white/10 px-6 py-3.5 text-white backdrop-blur-md hover:border-white">
+              {t.contact}
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </a>
           </div>
         </div>
-      </ContainerScroll>
+      </div>
+
+      {/* Below the first screen: the offer in a sentence, and a door for each audience. */}
+      <div className="relative px-5 pb-20 pt-[26svh] sm:px-8 md:pb-28">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-[clamp(1.25rem,2.2vw,1.625rem)] font-medium leading-snug tracking-[-0.02em] text-muted-foreground">{t.lede}</p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-x-8 gap-y-2 text-[0.9375rem] sm:flex-row">
+            <p>
+              <span className="text-muted-foreground">{t.hiring} </span>
+              <a href="#experience" className="link whitespace-nowrap">
+                {t.hiringLink} →
+              </a>
+            </p>
+            <p>
+              <span className="text-muted-foreground">{t.client} </span>
+              <a href="#pricing" className="link whitespace-nowrap">
+                {t.clientLink} →
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

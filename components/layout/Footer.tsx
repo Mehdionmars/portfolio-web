@@ -1,44 +1,30 @@
-'use client';
+import { links, type Locale } from '@/lib/content';
+import { dictionaries } from '@/lib/i18n';
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: Locale }) {
+  const t = dictionaries[locale].footer;
   const year = new Date().getFullYear();
+  const social = [
+    { label: 'LinkedIn', href: links.linkedin },
+    { label: 'GitHub', href: links.github },
+    { label: 'LeetCode', href: links.leetcode },
+  ];
 
   return (
-    <footer className="border-t border-border py-6">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+    <footer className="relative z-10 border-t border-border px-5 py-10 sm:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
-          <span className="text-muted-foreground/60">mehdi@portfolio:~$</span>{' '}
-          <span className="text-green-400">exit 0</span>
+          © {year} {t.rights}
         </p>
-
-        <div className="flex items-center gap-4">
-          <a
-            href="https://linkedin.com/in/moungid-mehdi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            linkedin/
-          </a>
-          <a
-            href="https://github.com/Mehdionmars"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            github/
-          </a>
-          <a
-            href="https://leetcode.com/mehdionmars"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            leetcode/
-          </a>
-        </div>
-
-        <p className="text-muted-foreground/40">© {year} Mehdi Moungid</p>
+        <ul className="flex gap-6">
+          {social.map(({ label, href }) => (
+            <li key={href}>
+              <a href={href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );
