@@ -1,153 +1,91 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Minus, Plus } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { experiences, formatRange, type Locale } from '@/lib/content';
+import { dictionaries } from '@/lib/i18n';
+import Section from './Section';
 
-const experiences = [
-  {
-    company: 'Solupharm',
-    role: 'Fullstack Developer Intern',
-    location: 'Montreal, QC',
-    period: 'Oct. 2024 – Dec. 2024',
-    achievements: [
-      'Collaborated cross-functionally to define and prioritize features.',
-      'Developed interactive web platform using Next.js for task management.',
-      'Integrated advanced scheduling features for real-time activity tracking.',
-      'Designed modular and scalable architecture, reducing maintenance time.',
-    ],
-    technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React', 'TypeScript'],
-  },
-  {
-    company: 'LogInfo',
-    role: 'Backend & Frontend Intern',
-    location: 'Casablanca, Morocco',
-    period: 'Mar. 2024 – Sept. 2024',
-    achievements: [
-      'Deployed applications with Next.js and React on AWS (EC2, RDS, S3).',
-      'Integrated Docker and Azure DevOps for environment management.',
-      'Performed code reviews, unit testing, and system testing.',
-      'Created code templates to share with other developers.',
-    ],
-    technologies: ['Next.js', 'Vercel', 'Postgres', 'Node.js', 'Tailwind', 'EC2', 'RDS', 'S3', 'Shadcn', 'React.js'],
-  },
-  {
-    company: 'Hpsearch',
-    role: 'WordPress Developer Intern',
-    location: 'Casablanca, Morocco',
-    period: 'June 2023 – Aug. 2023',
-    achievements: [
-      'Developed a WordPress plugin integrating third-party APIs.',
-      'Built multiple websites with responsive, optimized design.',
-    ],
-    technologies: ['WordPress', 'Elementor', 'PHP'],
-  },
-  {
-    company: 'SDAIM',
-    role: 'Android Developer Intern',
-    location: 'Casablanca, Morocco',
-    period: 'June 2021 – Sept. 2021',
-    achievements: [
-      'Developed and maintained a mobile application.',
-      'Developed backend tools with Payload CMS and MongoDB.',
-    ],
-    technologies: ['Payload CMS', 'React Native', 'Node.js', 'MongoDB', 'Expo'],
-  },
-  {
-    company: 'SITA',
-    role: 'Network Technician Intern',
-    location: 'Mohammed V Airport, Casablanca',
-    period: 'May 2020 – June 2020',
-    achievements: [
-      'Assisted in managing network infrastructures.',
-      'Gained introduction to network supervision and monitoring.',
-    ],
-    technologies: ['Cisco Networking', 'Network Monitoring'],
-  },
-];
+export default function Experience({ locale }: { locale: Locale }) {
+  const t = dictionaries[locale].experience;
+  const [open, setOpen] = useState<Set<number>>(() => new Set([0]));
 
-export default function Experience() {
-  const [expanded, setExpanded] = useState<number | null>(0);
+  const toggle = (i: number) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto font-mono">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
-          className="mb-10"
-        >
-          <p className="text-green-400 text-sm">$ ls -la ~/experience/</p>
-          <p className="text-xs text-muted-foreground mt-0.5">total {experiences.length}</p>
-          <div className="border-t border-border mt-2" />
-        </motion.div>
-
-        <div className="space-y-1">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.35, delay: index * 0.07 }}
-              viewport={{ once: true }}
-            >
-              <button
-                className="w-full text-left border border-border hover:border-green-400/40 transition-all duration-200 p-3 sm:p-4 group"
-                onClick={() => setExpanded(expanded === index ? null : index)}
+    <Section id="experience" locale={locale}>
+      <ol className="border-t border-border">
+        {experiences.map((exp, i) => {
+          const isOpen = open.has(i);
+          const panelId = `exp-panel-${i}`;
+          return (
+            <li key={exp.company} className="border-b border-border">
+              <h3>
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => toggle(i)}
+                  className="group grid w-full grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 py-5 text-left md:grid-cols-[12rem_1fr_auto] md:py-6"
+                >
+                  <span className="col-span-2 font-mono text-xs uppercase tracking-[0.06em] tabular-nums text-muted-foreground md:col-span-1">
+                    {formatRange(exp.start, exp.end, locale)}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="text-xl font-semibold tracking-[-0.02em] text-foreground">{exp.company}</span>
+                    <span className="mt-0.5 block text-muted-foreground md:ml-3 md:mt-0 md:inline">{exp.role[locale]}</span>
+                  </span>
+                  <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-full border border-border text-foreground transition-colors group-hover:border-foreground">
+                    {isOpen ? <Minus className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
+                  </span>
+                </button>
+              </h3>
+              <div
+                id={panelId}
+                aria-hidden={!isOpen}
+                className={cn(
+                  'grid transition-[grid-template-rows] duration-300 ease-out',
+                  isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                )}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <span className="text-muted-foreground/50 text-xs hidden sm:inline">drwxr-xr-x</span>
-                    <span className="text-cyan-400 text-sm font-semibold">{exp.company}/</span>
-                    <span className="text-muted-foreground text-xs">{exp.role}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="hidden sm:inline">{exp.location}</span>
-                    <span>{exp.period}</span>
-                    <span className={`transition-colors ${expanded === index ? 'text-green-400' : 'group-hover:text-foreground'}`}>
-                      {expanded === index ? '[-]' : '[+]'}
-                    </span>
+                <div className="overflow-hidden">
+                  <div className="grid gap-8 pb-8 md:grid-cols-[12rem_1fr_15rem] md:gap-x-6">
+                    <p className="text-sm text-muted-foreground">{exp.location[locale]}</p>
+                    <div>
+                      <p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-muted-foreground">{t.did}</p>
+                      <ul className="mt-3 space-y-2.5">
+                        {exp.achievements[locale].map((a) => (
+                          <li key={a} className="flex gap-3 text-foreground">
+                            <span aria-hidden="true" className="mt-[0.6em] h-1 w-1 shrink-0 rounded-full bg-foreground" />
+                            <span className="max-w-[62ch]">{a}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-muted-foreground">{t.stack}</p>
+                      <ul className="mt-3 flex flex-wrap gap-1.5">
+                        {exp.stack.map((tech) => (
+                          <li key={tech} className="chip">
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </button>
-
-              <AnimatePresence>
-                {expanded === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="border border-t-0 border-border bg-muted/10 p-4 sm:p-5 space-y-4 text-xs">
-                      <div className="space-y-1.5">
-                        <p className="text-muted-foreground/40"># achievements</p>
-                        {exp.achievements.map((a, i) => (
-                          <p key={i} className="text-muted-foreground pl-2">
-                            <span className="text-green-400/70 mr-2">▸</span>{a}
-                          </p>
-                        ))}
-                      </div>
-                      <div className="space-y-2">
-                        <p className="text-muted-foreground/40"># stack</p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {exp.technologies.map((tech, i) => (
-                            <span key={i} className="border border-border px-2 py-0.5 text-muted-foreground hover:text-foreground hover:border-green-400/40 transition-colors">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </Section>
   );
 }
